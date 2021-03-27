@@ -1,0 +1,2299 @@
+define(['dart_sdk', 'packages/provider/src/provider.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/material/text_field.dart', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/material/input_border.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/painting/placeholder_span.dart', 'packages/flutter_challange/src/constants/the_colors.dart', 'packages/flutter/src/gestures/tap.dart', 'packages/flutter_challange/src/widgets/the_rounded_button.dart', 'packages/flutter_challange/src/helpers/validators.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/widgets/annotated_region.dart', 'packages/flutter/src/services/system_chrome.dart', 'packages/flutter/src/widgets/safe_area.dart', 'packages/flutter/src/painting/gradient.dart', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter_challange/src/constants/the_font_weight.dart', 'packages/flutter/src/widgets/draggable_scrollable_sheet.dart', 'packages/flutter_challange/src/constants/the_theme.dart', 'packages/flutter/src/widgets/single_child_scroll_view.dart', 'packages/flutter_challange/src/widgets/the_sized_box.dart', 'packages/flutter_challange/src/widgets/the_loader.dart', 'packages/flutter_challange/src/services/user_service.dart', 'packages/flutter_challange/src/models/user/user_model.dart', 'packages/flutter_challange/src/helpers/preferences_base.dart', 'packages/flutter_challange/src/widgets/custom_widget.dart', 'packages/firebase_auth/firebase_auth.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/_network_image_web.dart', 'packages/flutter/src/painting/box_shadow.dart', 'packages/intl/src/intl/date_format.dart', 'packages/flutter/src/rendering/proxy_box.dart', 'packages/flutter_challange/src/services/auth_sevice.dart', 'packages/flutter_challange/src/models/auth/login_model.dart', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart'], (function load__packages__flutter_challange__src__screens__auth__login_screen_dart(dart_sdk, packages__provider__src__provider$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__material__text_field$46dart, packages__flutter__src__services__text_input$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__material__input_border$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__painting__placeholder_span$46dart, packages__flutter_challange__src__constants__the_colors$46dart, packages__flutter__src__gestures__tap$46dart, packages__flutter_challange__src__widgets__the_rounded_button$46dart, packages__flutter_challange__src__helpers__validators$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__widgets__annotated_region$46dart, packages__flutter__src__services__system_chrome$46dart, packages__flutter__src__widgets__safe_area$46dart, packages__flutter__src__painting__gradient$46dart, packages__flutter__src__painting__box_fit$46dart, packages__flutter_challange__src__constants__the_font_weight$46dart, packages__flutter__src__widgets__draggable_scrollable_sheet$46dart, packages__flutter_challange__src__constants__the_theme$46dart, packages__flutter__src__widgets__single_child_scroll_view$46dart, packages__flutter_challange__src__widgets__the_sized_box$46dart, packages__flutter_challange__src__widgets__the_loader$46dart, packages__flutter_challange__src__services__user_service$46dart, packages__flutter_challange__src__models__user__user_model$46dart, packages__flutter_challange__src__helpers__preferences_base$46dart, packages__flutter_challange__src__widgets__custom_widget$46dart, packages__firebase_auth__firebase_auth$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting___network_image_web$46dart, packages__flutter__src__painting__box_shadow$46dart, packages__intl__src__intl__date_format$46dart, packages__flutter__src__rendering__proxy_box$46dart, packages__flutter_challange__src__services__auth_sevice$46dart, packages__flutter_challange__src__models__auth__login_model$46dart, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const provider = packages__provider__src__provider$46dart.src__provider;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const gesture_detector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__gesture_detector;
+  const focus_scope = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_scope;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_controller;
+  const binding = packages__flutter__src__widgets__widget_span$46dart.src__widgets__binding;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const text_field = packages__flutter__src__material__text_field$46dart.src__material__text_field;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+  const material_button = packages__flutter__src__material__icon_button$46dart.src__material__material_button;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const divider = packages__flutter__src__material__icon_button$46dart.src__material__divider;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
+  const input_border = packages__flutter__src__material__input_border$46dart.src__material__input_border;
+  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const text_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__text_span;
+  const inline_span = packages__flutter__src__painting__placeholder_span$46dart.src__painting__inline_span;
+  const the_colors = packages__flutter_challange__src__constants__the_colors$46dart.src__constants__the_colors;
+  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
+  const the_rounded_button = packages__flutter_challange__src__widgets__the_rounded_button$46dart.src__widgets__the_rounded_button;
+  const validators = packages__flutter_challange__src__helpers__validators$46dart.src__helpers__validators;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
+  const annotated_region = packages__flutter__src__widgets__annotated_region$46dart.src__widgets__annotated_region;
+  const system_chrome = packages__flutter__src__services__system_chrome$46dart.src__services__system_chrome;
+  const safe_area = packages__flutter__src__widgets__safe_area$46dart.src__widgets__safe_area;
+  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
+  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
+  const the_font_weight = packages__flutter_challange__src__constants__the_font_weight$46dart.src__constants__the_font_weight;
+  const draggable_scrollable_sheet = packages__flutter__src__widgets__draggable_scrollable_sheet$46dart.src__widgets__draggable_scrollable_sheet;
+  const the_theme = packages__flutter_challange__src__constants__the_theme$46dart.src__constants__the_theme;
+  const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
+  const the_sized_box = packages__flutter_challange__src__widgets__the_sized_box$46dart.src__widgets__the_sized_box;
+  const the_loader = packages__flutter_challange__src__widgets__the_loader$46dart.src__widgets__the_loader;
+  const user_service = packages__flutter_challange__src__services__user_service$46dart.src__services__user_service;
+  const user_model = packages__flutter_challange__src__models__user__user_model$46dart.src__models__user__user_model;
+  const preferences_base = packages__flutter_challange__src__helpers__preferences_base$46dart.src__helpers__preferences_base;
+  const custom_widget = packages__flutter_challange__src__widgets__custom_widget$46dart.src__widgets__custom_widget;
+  const firebase_auth = packages__firebase_auth__firebase_auth$46dart.firebase_auth;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const _network_image_web = packages__flutter__src__painting___network_image_web$46dart.src__painting___network_image_web;
+  const box_shadow = packages__flutter__src__painting__box_shadow$46dart.src__painting__box_shadow;
+  const date_format = packages__intl__src__intl__date_format$46dart.src__intl__date_format;
+  const proxy_box = packages__flutter__src__rendering__proxy_box$46dart.src__rendering__proxy_box;
+  const auth_sevice = packages__flutter_challange__src__services__auth_sevice$46dart.src__services__auth_sevice;
+  const login_model = packages__flutter_challange__src__models__auth__login_model$46dart.src__models__auth__login_model;
+  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
+  var login_screen = Object.create(dart.library);
+  var user_bloc = Object.create(dart.library);
+  var profile_screen = Object.create(dart.library);
+  var login_bloc = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    LoginBlocL: () => (T.LoginBlocL = dart.constFn(dart.legacy(login_bloc.LoginBloc)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    TextEditingControllerL: () => (T.TextEditingControllerL = dart.constFn(dart.legacy(editable_text.TextEditingController)))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    StringL__ToWidgetL: () => (T.StringL__ToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.StringL()], {controller: T.TextEditingControllerL(), isPassword: T.boolL()}, {})))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    InlineSpanL: () => (T.InlineSpanL = dart.constFn(dart.legacy(inline_span.InlineSpan)))(),
+    JSArrayOfInlineSpanL: () => (T.JSArrayOfInlineSpanL = dart.constFn(_interceptors.JSArray$(T.InlineSpanL())))(),
+    FunctionL: () => (T.FunctionL = dart.constFn(dart.legacy(core.Function)))(),
+    StringL__ToWidgetL$1: () => (T.StringL__ToWidgetL$1 = dart.constFn(dart.fnType(T.WidgetL(), [T.StringL()], {onPressed: T.FunctionL()}, {})))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    BuildContextLToWidgetL: () => (T.BuildContextLToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.BuildContextL()])))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    SystemUiOverlayStyleL: () => (T.SystemUiOverlayStyleL = dart.constFn(dart.legacy(system_chrome.SystemUiOverlayStyle)))(),
+    AnnotatedRegionOfSystemUiOverlayStyleL: () => (T.AnnotatedRegionOfSystemUiOverlayStyleL = dart.constFn(annotated_region.AnnotatedRegion$(T.SystemUiOverlayStyleL())))(),
+    ColorL: () => (T.ColorL = dart.constFn(dart.legacy(ui.Color)))(),
+    JSArrayOfColorL: () => (T.JSArrayOfColorL = dart.constFn(_interceptors.JSArray$(T.ColorL())))(),
+    ObjectL: () => (T.ObjectL = dart.constFn(dart.legacy(core.Object)))(),
+    ContainerL: () => (T.ContainerL = dart.constFn(dart.legacy(container.Container)))(),
+    ScrollControllerL: () => (T.ScrollControllerL = dart.constFn(dart.legacy(scroll_controller.ScrollController)))(),
+    BuildContextLAndScrollControllerLToContainerL: () => (T.BuildContextLAndScrollControllerLToContainerL = dart.constFn(dart.fnType(T.ContainerL(), [T.BuildContextL(), T.ScrollControllerL()])))(),
+    ScaffoldStateL: () => (T.ScaffoldStateL = dart.constFn(dart.legacy(scaffold.ScaffoldState)))(),
+    GlobalKeyOfScaffoldStateL: () => (T.GlobalKeyOfScaffoldStateL = dart.constFn(framework.GlobalKey$(T.ScaffoldStateL())))(),
+    UserBlocL: () => (T.UserBlocL = dart.constFn(dart.legacy(user_bloc.UserBloc)))(),
+    BoxShadowL: () => (T.BoxShadowL = dart.constFn(dart.legacy(box_shadow.BoxShadow)))(),
+    JSArrayOfBoxShadowL: () => (T.JSArrayOfBoxShadowL = dart.constFn(_interceptors.JSArray$(T.BoxShadowL())))(),
+    PathL: () => (T.PathL = dart.constFn(dart.legacy(ui.Path)))(),
+    CustomClipperOfPathL: () => (T.CustomClipperOfPathL = dart.constFn(proxy_box.CustomClipper$(T.PathL())))(),
+    CustomClipperLOfPathL: () => (T.CustomClipperLOfPathL = dart.constFn(dart.legacy(T.CustomClipperOfPathL())))(),
+    FirebaseAuthExceptionL: () => (T.FirebaseAuthExceptionL = dart.constFn(dart.legacy(firebase_auth_exception.FirebaseAuthException)))(),
+    DurationL: () => (T.DurationL = dart.constFn(dart.legacy(core.Duration)))(),
+    DurationLTovoid: () => (T.DurationLTovoid = dart.constFn(dart.fnType(dart.void, [T.DurationL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 13,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "keyboardType",
+        [_Location_column]: 13,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 13,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "obscureText",
+        [_Location_column]: 13,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 13,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 11,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 11,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11], T._LocationL());
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 27,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.constList([C[14] || CT.C14], T._LocationL());
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[13] || CT.C13,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "text",
+        [_Location_column]: 13,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.constList([C[17] || CT.C17], T._LocationL());
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[16] || CT.C16,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 11,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 11,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22], T._LocationL());
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 84,
+        [_Location_file]: null
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 17,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C24() {
+      return C[24] = dart.constList([C[25] || CT.C25, C[26] || CT.C26], T._LocationL());
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[24] || CT.C24,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 83,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 9,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 83,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "name",
+        [_Location_column]: 23,
+        [_Location_line]: 107,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 23,
+        [_Location_line]: 108,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 23,
+        [_Location_line]: 109,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], T._LocationL());
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 106,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 30,
+        [_Location_line]: 111,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38], T._LocationL());
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 112,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 105,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44], T._LocationL());
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 104,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 17,
+        [_Location_line]: 98,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "shape",
+        [_Location_column]: 17,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 17,
+        [_Location_line]: 101,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 17,
+        [_Location_line]: 102,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 17,
+        [_Location_line]: 103,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48, C[49] || CT.C49, C[50] || CT.C50, C[51] || CT.C51, C[52] || CT.C52], T._LocationL());
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 97,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 11,
+        [_Location_line]: 95,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 96,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.constList([C[55] || CT.C55, C[56] || CT.C56], T._LocationL());
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[54] || CT.C54,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 94,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "alignment",
+        [_Location_column]: 9,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.constList([C[59] || CT.C59, C[60] || CT.C60], T._LocationL());
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[58] || CT.C58,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 92,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 151,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63], T._LocationL());
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 150,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "name",
+        [_Location_column]: 23,
+        [_Location_line]: 160,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "fit",
+        [_Location_column]: 23,
+        [_Location_line]: 161,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.constList([C[66] || CT.C66, C[67] || CT.C67], T._LocationL());
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[65] || CT.C65,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 159,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "top",
+        [_Location_column]: 21,
+        [_Location_line]: 156,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "left",
+        [_Location_column]: 21,
+        [_Location_line]: 157,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "right",
+        [_Location_column]: 21,
+        [_Location_line]: 158,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 159,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.constList([C[70] || CT.C70, C[71] || CT.C71, C[72] || CT.C72, C[73] || CT.C73], T._LocationL());
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[69] || CT.C69,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 155,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 168,
+        [_Location_file]: null
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maxLines",
+        [_Location_column]: 23,
+        [_Location_line]: 169,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textAlign",
+        [_Location_column]: 23,
+        [_Location_line]: 170,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 171,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.constList([C[76] || CT.C76, C[77] || CT.C77, C[78] || CT.C78, C[79] || CT.C79], T._LocationL());
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[75] || CT.C75,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 167,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C82() {
+      return C[82] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "top",
+        [_Location_column]: 21,
+        [_Location_line]: 165,
+        [_Location_file]: null
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "left",
+        [_Location_column]: 21,
+        [_Location_line]: 166,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C81() {
+      return C[81] = dart.constList([C[82] || CT.C82, C[83] || CT.C83, C[84] || CT.C84], T._LocationL());
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[81] || CT.C81,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 164,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C86() {
+      return C[86] = dart.constList([], T._LocationL());
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 45,
+        [_Location_line]: 202,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 45,
+        [_Location_line]: 207,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 45,
+        [_Location_line]: 209,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 210,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 42,
+        [_Location_line]: 212,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.constList([C[92] || CT.C92], T._LocationL());
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[91] || CT.C91,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 212,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 31,
+        [_Location_line]: 194,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisSize",
+        [_Location_column]: 31,
+        [_Location_line]: 195,
+        [_Location_file]: null
+      });
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 31,
+        [_Location_line]: 196,
+        [_Location_file]: null
+      });
+    },
+    get C94() {
+      return C[94] = dart.constList([C[95] || CT.C95, C[96] || CT.C96, C[97] || CT.C97], T._LocationL());
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[94] || CT.C94,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 193,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 29,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 193,
+        [_Location_file]: null
+      });
+    },
+    get C99() {
+      return C[99] = dart.constList([C[100] || CT.C100, C[101] || CT.C101], T._LocationL());
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[99] || CT.C99,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 191,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 27,
+        [_Location_line]: 183,
+        [_Location_file]: null
+      });
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 27,
+        [_Location_line]: 184,
+        [_Location_file]: null
+      });
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 191,
+        [_Location_file]: null
+      });
+    },
+    get C103() {
+      return C[103] = dart.constList([C[104] || CT.C104, C[105] || CT.C105, C[106] || CT.C106], T._LocationL());
+    },
+    get C102() {
+      return C[102] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[103] || CT.C103,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 182,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "maxChildSize",
+        [_Location_column]: 23,
+        [_Location_line]: 178,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "initialChildSize",
+        [_Location_column]: 23,
+        [_Location_line]: 179,
+        [_Location_file]: null
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "minChildSize",
+        [_Location_column]: 23,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 23,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C108() {
+      return C[108] = dart.constList([C[109] || CT.C109, C[110] || CT.C110, C[111] || CT.C111, C[112] || CT.C112], T._LocationL());
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[108] || CT.C108,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 177,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 149,
+        [_Location_file]: null
+      });
+    },
+    get C114() {
+      return C[114] = dart.constList([C[115] || CT.C115], T._LocationL());
+    },
+    get C113() {
+      return C[113] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[114] || CT.C114,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 148,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C118() {
+      return C[118] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 15,
+        [_Location_line]: 139,
+        [_Location_file]: null
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 148,
+        [_Location_file]: null
+      });
+    },
+    get C117() {
+      return C[117] = dart.constList([C[118] || CT.C118, C[119] || CT.C119], T._LocationL());
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[117] || CT.C117,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 138,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C122() {
+      return C[122] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 131,
+        [_Location_file]: null
+      });
+    },
+    get C123() {
+      return C[123] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 138,
+        [_Location_file]: null
+      });
+    },
+    get C121() {
+      return C[121] = dart.constList([C[122] || CT.C122, C[123] || CT.C123], T._LocationL());
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[121] || CT.C121,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 130,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 130,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.constList([C[126] || CT.C126], T._LocationL());
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[125] || CT.C125,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 129,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C129() {
+      return C[129] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "value",
+        [_Location_column]: 9,
+        [_Location_line]: 128,
+        [_Location_file]: null
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 129,
+        [_Location_file]: null
+      });
+    },
+    get C128() {
+      return C[128] = dart.constList([C[129] || CT.C129, C[130] || CT.C130], T._LocationL());
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[128] || CT.C128,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 127,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundColor",
+        [_Location_column]: 7,
+        [_Location_line]: 123,
+        [_Location_file]: null
+      });
+    },
+    get C134() {
+      return C[134] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 124,
+        [_Location_file]: null
+      });
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 7,
+        [_Location_line]: 125,
+        [_Location_file]: null
+      });
+    },
+    get C136() {
+      return C[136] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 7,
+        [_Location_line]: 127,
+        [_Location_file]: null
+      });
+    },
+    get C132() {
+      return C[132] = dart.constList([C[133] || CT.C133, C[134] || CT.C134, C[135] || CT.C135, C[136] || CT.C136], T._LocationL());
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[132] || CT.C132,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 122,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/auth/login_screen.dart"
+      });
+    },
+    get C139() {
+      return C[139] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 19,
+        [_Location_file]: null
+      });
+    },
+    get C138() {
+      return C[138] = dart.constList([C[139] || CT.C139], T._LocationL());
+    },
+    get C137() {
+      return C[137] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[138] || CT.C138,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 19,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C142() {
+      return C[142] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 19,
+        [_Location_file]: null
+      });
+    },
+    get C141() {
+      return C[141] = dart.constList([C[142] || CT.C142], T._LocationL());
+    },
+    get C140() {
+      return C[140] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[141] || CT.C141,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 18,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 32,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C144() {
+      return C[144] = dart.constList([C[145] || CT.C145], T._LocationL());
+    },
+    get C143() {
+      return C[143] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[144] || CT.C144,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C149() {
+      return C[149] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipper",
+        [_Location_column]: 15,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C147() {
+      return C[147] = dart.constList([C[148] || CT.C148, C[149] || CT.C149], T._LocationL());
+    },
+    get C146() {
+      return C[146] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[147] || CT.C147,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C152() {
+      return C[152] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 25,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C153() {
+      return C[153] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 25,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C154() {
+      return C[154] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 25,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C151() {
+      return C[151] = dart.constList([C[152] || CT.C152, C[153] || CT.C153, C[154] || CT.C154], T._LocationL());
+    },
+    get C150() {
+      return C[150] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[151] || CT.C151,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C157() {
+      return C[157] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 30,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C156() {
+      return C[156] = dart.constList([C[157] || CT.C157], T._LocationL());
+    },
+    get C155() {
+      return C[155] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[156] || CT.C156,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C160() {
+      return C[160] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 42,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C161() {
+      return C[161] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C159() {
+      return C[159] = dart.constList([C[160] || CT.C160, C[161] || CT.C161], T._LocationL());
+    },
+    get C158() {
+      return C[158] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[159] || CT.C159,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C162() {
+      return C[162] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C165() {
+      return C[165] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 39,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C166() {
+      return C[166] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C164() {
+      return C[164] = dart.constList([C[165] || CT.C165, C[166] || CT.C166], T._LocationL());
+    },
+    get C163() {
+      return C[163] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[164] || CT.C164,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C167() {
+      return C[167] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 62,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C170() {
+      return C[170] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 27,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C171() {
+      return C[171] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C172() {
+      return C[172] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textAlign",
+        [_Location_column]: 23,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C169() {
+      return C[169] = dart.constList([C[170] || CT.C170, C[171] || CT.C171, C[172] || CT.C172], T._LocationL());
+    },
+    get C168() {
+      return C[168] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[169] || CT.C169,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C173() {
+      return C[173] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 33,
+        [_Location_line]: 74,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C176() {
+      return C[176] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 33,
+        [_Location_line]: 87,
+        [_Location_file]: null
+      });
+    },
+    get C177() {
+      return C[177] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 33,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C175() {
+      return C[175] = dart.constList([C[176] || CT.C176, C[177] || CT.C177], T._LocationL());
+    },
+    get C174() {
+      return C[174] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[175] || CT.C175,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 86,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C180() {
+      return C[180] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 31,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C179() {
+      return C[179] = dart.constList([C[180] || CT.C180], T._LocationL());
+    },
+    get C178() {
+      return C[178] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[179] || CT.C179,
+        [_Location_name]: null,
+        [_Location_column]: 36,
+        [_Location_line]: 85,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C183() {
+      return C[183] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 29,
+        [_Location_line]: 84,
+        [_Location_file]: null
+      });
+    },
+    get C184() {
+      return C[184] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 29,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C182() {
+      return C[182] = dart.constList([C[183] || CT.C183, C[184] || CT.C184], T._LocationL());
+    },
+    get C181() {
+      return C[181] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[182] || CT.C182,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 83,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C187() {
+      return C[187] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "borderRadius",
+        [_Location_column]: 27,
+        [_Location_line]: 79,
+        [_Location_file]: null
+      });
+    },
+    get C188() {
+      return C[188] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "shadowColor",
+        [_Location_column]: 27,
+        [_Location_line]: 80,
+        [_Location_file]: null
+      });
+    },
+    get C189() {
+      return C[189] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 27,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C190() {
+      return C[190] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 27,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C191() {
+      return C[191] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 83,
+        [_Location_file]: null
+      });
+    },
+    get C186() {
+      return C[186] = dart.constList([C[187] || CT.C187, C[188] || CT.C188, C[189] || CT.C189, C[190] || CT.C190, C[191] || CT.C191], T._LocationL());
+    },
+    get C185() {
+      return C[185] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[186] || CT.C186,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 78,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C194() {
+      return C[194] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 25,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C195() {
+      return C[195] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 25,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C196() {
+      return C[196] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C193() {
+      return C[193] = dart.constList([C[194] || CT.C194, C[195] || CT.C195, C[196] || CT.C196], T._LocationL());
+    },
+    get C192() {
+      return C[192] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[193] || CT.C193,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 75,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C199() {
+      return C[199] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C198() {
+      return C[198] = dart.constList([C[199] || CT.C199], T._LocationL());
+    },
+    get C197() {
+      return C[197] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[198] || CT.C198,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 32,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C202() {
+      return C[202] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 17,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C203() {
+      return C[203] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "top",
+        [_Location_column]: 17,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C204() {
+      return C[204] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C201() {
+      return C[201] = dart.constList([C[202] || CT.C202, C[203] || CT.C203, C[204] || CT.C204], T._LocationL());
+    },
+    get C200() {
+      return C[200] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[201] || CT.C201,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 29,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C207() {
+      return C[207] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 11,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C206() {
+      return C[206] = dart.constList([C[207] || CT.C207], T._LocationL());
+    },
+    get C205() {
+      return C[205] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[206] || CT.C206,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C210() {
+      return C[210] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 13,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C209() {
+      return C[209] = dart.constList([C[210] || CT.C210], T._LocationL());
+    },
+    get C208() {
+      return C[208] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[209] || CT.C209,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 22,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    },
+    get C213() {
+      return C[213] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 9,
+        [_Location_line]: 18,
+        [_Location_file]: null
+      });
+    },
+    get C214() {
+      return C[214] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 9,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C215() {
+      return C[215] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C212() {
+      return C[212] = dart.constList([C[213] || CT.C213, C[214] || CT.C214, C[215] || CT.C215], T._LocationL());
+    },
+    get C211() {
+      return C[211] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[212] || CT.C212,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 17,
+        [_Location_file]: "file:///C:/Users/Lenovo/Downloads/Compressed/flutter_firebase_auth_provider-master/lib/src/screens/user/profile_screen.dart"
+      });
+    }
+  }, false);
+  var C = Array(216).fill(void 0);
+  var I = [
+    "package:flutter_challange/src/screens/auth/login_screen.dart",
+    "package:flutter_challange/src/providers/user/user_bloc.dart",
+    "package:flutter_challange/src/screens/user/profile_screen.dart",
+    "package:flutter_challange/src/providers/auth/login_bloc.dart"
+  ];
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  login_screen.LoginScreen = class LoginScreen extends framework.StatelessWidget {
+    build(context) {
+      let bloc = provider.Provider.of(T.LoginBlocL(), context);
+      bloc.didMount(context);
+      let dimension = media_query.MediaQuery.of(context).size;
+      function _entryField(hint, opts) {
+        let controller = opts && 'controller' in opts ? opts.controller : null;
+        let isPassword = opts && 'isPassword' in opts ? opts.isPassword : false;
+        return new basic.Center.new({child: new container.Container.new({margin: new edge_insets.EdgeInsets.symmetric({vertical: 10.0}), decoration: new box_decoration.BoxDecoration.new({color: colors.Colors.grey.shade200, borderRadius: new border_radius.BorderRadius.circular(30.0)}), child: new text_field.TextField.new({controller: controller, keyboardType: text_input.TextInputType.emailAddress, style: new text_style.TextStyle.new({fontStyle: ui.FontStyle.normal, fontWeight: ui.FontWeight.normal}), obscureText: isPassword, decoration: new input_decorator.InputDecoration.new({hintText: hint, border: input_border.InputBorder.none, focusedBorder: new input_border.OutlineInputBorder.new({borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(30.0)), borderSide: new borders.BorderSide.new({color: colors.Colors.blue})}), contentPadding: new edge_insets.EdgeInsets.symmetric({vertical: 15.0, horizontal: 20.0})}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), $creationLocationd_0dea112b090073317d4: C[12] || CT.C12});
+      }
+      dart.fn(_entryField, T.StringL__ToWidgetL());
+      function _labelButton(title, opts) {
+        let t0;
+        let onPressed = opts && 'onPressed' in opts ? opts.onPressed : null;
+        return new container.Container.new({alignment: alignment.Alignment.bottomRight, margin: new edge_insets.EdgeInsets.only({right: 10.0}), child: new basic.RichText.new({text: new text_span.TextSpan.new({children: T.JSArrayOfInlineSpanL().of([new text_span.TextSpan.new({text: "Belum punya akun? ", style: new text_style.TextStyle.new({color: colors.Colors.black})}), new text_span.TextSpan.new({text: "Klik disini", style: new text_style.TextStyle.new({color: the_colors.TheColors.link}), recognizer: (t0 = new tap.TapGestureRecognizer.new(), (() => {
+                    t0.onTap = dart.fn(() => {
+                      dart.dcall(onPressed, []);
+                    }, T.VoidToNull());
+                    return t0;
+                  })())})])}), $creationLocationd_0dea112b090073317d4: C[15] || CT.C15}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18});
+      }
+      dart.fn(_labelButton, T.StringL__ToWidgetL$1());
+      function _emailLoginButton(context) {
+        return new container.Container.new({width: dimension.width, child: new the_rounded_button.TheRoundedButton.new("Masuk", dart.dtest(validators.Validators.isNull(bloc.email)) || dart.dtest(validators.Validators.isNull(bloc.password)) ? null : dart.bind(bloc, 'onSubmit'), {$creationLocationd_0dea112b090073317d4: C[23] || CT.C23}), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27});
+      }
+      dart.fn(_emailLoginButton, T.BuildContextLToWidgetL());
+      function _googleLoginButton(context) {
+        return new container.Container.new({alignment: alignment.Alignment.center, child: new basic.Row.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidgetL().of([new material_button.MaterialButton.new({elevation: 2.0, shape: new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.circular(10.0)}), color: colors.Colors.white, onPressed: dart.fn(() => {
+                }, T.VoidToNull()), padding: new edge_insets.EdgeInsets.symmetric({horizontal: 30.0, vertical: 10.0}), child: new basic.Row.new({children: T.JSArrayOfWidgetL().of([new image.Image.asset("assets/images/google_logo.png", {height: 20.0, width: 20.0, $creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), new basic.SizedBox.new({width: 10.0, $creationLocationd_0dea112b090073317d4: C[36] || CT.C36}), new text.Text.new("Lanjutkan dengan Google", {$creationLocationd_0dea112b090073317d4: C[39] || CT.C39})]), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42}), $creationLocationd_0dea112b090073317d4: C[45] || CT.C45})]), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}), $creationLocationd_0dea112b090073317d4: C[57] || CT.C57});
+      }
+      dart.fn(_googleLoginButton, T.BuildContextLToWidgetL());
+      return new scaffold.Scaffold.new({backgroundColor: the_colors.TheColors.background, key: bloc.scaffoldKey, appBar: null, body: new (T.AnnotatedRegionOfSystemUiOverlayStyleL()).new({value: system_chrome.SystemUiOverlayStyle.dark, child: new safe_area.SafeArea.new({child: new gesture_detector.GestureDetector.new({onTap: dart.fn(() => {
+                let currentFocus = focus_scope.FocusScope.of(context);
+                if (!dart.test(currentFocus.hasPrimaryFocus)) {
+                  currentFocus.unfocus();
+                }
+              }, T.VoidToNull()), child: new container.Container.new({decoration: new box_decoration.BoxDecoration.new({gradient: new gradient.LinearGradient.new({colors: T.JSArrayOfColorL().of([new ui.Color.new(4294704123), new ui.Color.new(4294440951)]), begin: alignment.Alignment.topCenter, end: alignment.Alignment.bottomCenter})}), child: new basic.Stack.new({children: T.JSArrayOfWidgetL().of([new basic.Column.new({children: T.JSArrayOfWidgetL().of([]), $creationLocationd_0dea112b090073317d4: C[61] || CT.C61}), new basic.Positioned.new({top: 30.0, left: 0.0, right: 0.0, child: new image.Image.asset("assets/images/login.png", {fit: box_fit.BoxFit.fill, $creationLocationd_0dea112b090073317d4: C[64] || CT.C64}), $creationLocationd_0dea112b090073317d4: C[68] || CT.C68}), new basic.Positioned.new({top: dart.notNull(dimension.height) / 8, left: dart.notNull(dimension.width) / 10, child: new text.Text.new("Flutter\nChallange\nReza Fahlevi", {maxLines: 3, textAlign: ui.TextAlign.left, style: new text_style.TextStyle.new({fontFamily: "arial", fontWeight: the_font_weight.TheFontWeight.bold, fontStyle: ui.FontStyle.italic}), $creationLocationd_0dea112b090073317d4: C[74] || CT.C74}), $creationLocationd_0dea112b090073317d4: C[80] || CT.C80}), new draggable_scrollable_sheet.DraggableScrollableSheet.new({maxChildSize: 0.8, initialChildSize: 0.5, minChildSize: 0.5, builder: dart.fn((context, scrollController) => new container.Container.new({padding: the_theme.TheTheme.padding.copyWith({bottom: 0.0}), decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.only({topLeft: new ui.Radius.circular(40.0), topRight: new ui.Radius.circular(40.0)}), color: the_colors.TheColors.blue}), child: new single_child_scroll_view.SingleChildScrollView.new({controller: scrollController, child: new basic.Column.new({crossAxisAlignment: flex.CrossAxisAlignment.start, mainAxisSize: flex.MainAxisSize.max, children: T.JSArrayOfWidgetL().of([_entryField("Email kamu", {controller: bloc.emailController}), _entryField("Password kamu", {controller: bloc.passwordController, isPassword: true}), new the_sized_box.TheSizedBox.bloodySmallVertical({$creationLocationd_0dea112b090073317d4: C[85] || CT.C85}), _labelButton("Belum punya akun? Daftar di sini", {onPressed: dart.fn(() => {
+                                  navigator.Navigator.of(context).pushNamed(T.ObjectL(), "/register");
+                                }, T.VoidToNull())}), new the_sized_box.TheSizedBox.normalVertical({$creationLocationd_0dea112b090073317d4: C[87] || CT.C87}), _emailLoginButton(context), new the_sized_box.TheSizedBox.normalVertical({$creationLocationd_0dea112b090073317d4: C[88] || CT.C88}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[89] || CT.C89}), new basic.SizedBox.new({height: 100.0, $creationLocationd_0dea112b090073317d4: C[90] || CT.C90})]), $creationLocationd_0dea112b090073317d4: C[93] || CT.C93}), $creationLocationd_0dea112b090073317d4: C[98] || CT.C98}), $creationLocationd_0dea112b090073317d4: C[102] || CT.C102}), T.BuildContextLAndScrollControllerLToContainerL()), $creationLocationd_0dea112b090073317d4: C[107] || CT.C107})]), $creationLocationd_0dea112b090073317d4: C[113] || CT.C113}), $creationLocationd_0dea112b090073317d4: C[116] || CT.C116}), $creationLocationd_0dea112b090073317d4: C[120] || CT.C120}), $creationLocationd_0dea112b090073317d4: C[124] || CT.C124}), $creationLocationd_0dea112b090073317d4: C[127] || CT.C127}), $creationLocationd_0dea112b090073317d4: C[131] || CT.C131});
+    }
+  };
+  (login_screen.LoginScreen.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    login_screen.LoginScreen.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = login_screen.LoginScreen.prototype;
+  dart.addTypeTests(login_screen.LoginScreen);
+  dart.addTypeCaches(login_screen.LoginScreen);
+  dart.setMethodSignature(login_screen.LoginScreen, () => ({
+    __proto__: dart.getMethods(login_screen.LoginScreen.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(login_screen.LoginScreen, I[0]);
+  dart.defineLazy(login_screen.LoginScreen, {
+    /*login_screen.LoginScreen.routeName*/get routeName() {
+      return "/login";
+    }
+  }, true);
+  var loader = dart.privateName(user_bloc, "UserBloc.loader");
+  var scaffoldKey = dart.privateName(user_bloc, "UserBloc.scaffoldKey");
+  var _context = dart.privateName(user_bloc, "_context");
+  var _repository = dart.privateName(user_bloc, "_repository");
+  var _user = dart.privateName(user_bloc, "_user");
+  user_bloc.UserBloc = class UserBloc extends change_notifier.ChangeNotifier {
+    get loader() {
+      return this[loader];
+    }
+    set loader(value) {
+      this[loader] = value;
+    }
+    get scaffoldKey() {
+      return this[scaffoldKey];
+    }
+    set scaffoldKey(value) {
+      super.scaffoldKey = value;
+    }
+    get user() {
+      return this[_user];
+    }
+    set setUser(val) {
+      this[_user] = val;
+      this.notifyListeners();
+    }
+    didMount(context) {
+      this[_context] = T.BuildContextL().as(context);
+    }
+    getToken() {
+      return async.async(dart.dynamic, function* getToken() {
+        let test = (yield preferences_base.Prefs.token);
+        core.print("JWT TOKEN ==> " + dart.str(test));
+      });
+    }
+    fecthData() {
+      return async.async(dart.dynamic, (function* fecthData() {
+        let response = (yield this[_repository].fecthData());
+        if (dart.test(response.status)) {
+          this.setUser = response.data;
+        } else {
+          custom_widget.customSnackBar(this.scaffoldKey, response.message, {backgroundColor: colors.Colors.redAccent});
+          async.Timer.new(new core.Duration.new({seconds: 2}), dart.fn(() => {
+            this.logout();
+          }, T.VoidToNull()));
+        }
+        return this.user;
+      }).bind(this));
+    }
+    logout() {
+      return async.async(dart.dynamic, (function* logout() {
+        this.loader.showLoader(this[_context]);
+        preferences_base.PreferencesHelper.removeAll();
+        yield firebase_auth.FirebaseAuth.instance.signOut();
+        this.loader.hideLoader();
+      }).bind(this));
+    }
+  };
+  (user_bloc.UserBloc.new = function() {
+    this[_context] = null;
+    this[loader] = the_loader.CustomLoader.new();
+    this[scaffoldKey] = T.GlobalKeyOfScaffoldStateL().new();
+    this[_repository] = new user_service.UserService.new();
+    this[_user] = new user_model.UserModel.new();
+    user_bloc.UserBloc.__proto__.new.call(this);
+  }).prototype = user_bloc.UserBloc.prototype;
+  dart.addTypeTests(user_bloc.UserBloc);
+  dart.addTypeCaches(user_bloc.UserBloc);
+  dart.setMethodSignature(user_bloc.UserBloc, () => ({
+    __proto__: dart.getMethods(user_bloc.UserBloc.__proto__),
+    didMount: dart.fnType(dart.dynamic, [dart.dynamic]),
+    getToken: dart.fnType(dart.dynamic, []),
+    fecthData: dart.fnType(dart.dynamic, []),
+    logout: dart.fnType(dart.dynamic, [])
+  }));
+  dart.setGetterSignature(user_bloc.UserBloc, () => ({
+    __proto__: dart.getGetters(user_bloc.UserBloc.__proto__),
+    user: dart.legacy(user_model.UserModel)
+  }));
+  dart.setSetterSignature(user_bloc.UserBloc, () => ({
+    __proto__: dart.getSetters(user_bloc.UserBloc.__proto__),
+    setUser: dart.legacy(user_model.UserModel)
+  }));
+  dart.setLibraryUri(user_bloc.UserBloc, I[1]);
+  dart.setFieldSignature(user_bloc.UserBloc, () => ({
+    __proto__: dart.getFields(user_bloc.UserBloc.__proto__),
+    [_context]: dart.fieldType(dart.legacy(framework.BuildContext)),
+    loader: dart.fieldType(dart.legacy(the_loader.CustomLoader)),
+    scaffoldKey: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(scaffold.ScaffoldState)))),
+    [_repository]: dart.finalFieldType(dart.legacy(user_service.UserService)),
+    [_user]: dart.fieldType(dart.legacy(user_model.UserModel))
+  }));
+  profile_screen.ProfileScreen = class ProfileScreen extends framework.StatelessWidget {
+    build(context) {
+      let t0, t0$;
+      let bloc = provider.Provider.of(T.UserBlocL(), context);
+      bloc.didMount(context);
+      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("Profile", {$creationLocationd_0dea112b090073317d4: C[137] || CT.C137}), $creationLocationd_0dea112b090073317d4: C[140] || CT.C140}), key: bloc.scaffoldKey, body: new scaffold.Scaffold.new({body: new basic.Stack.new({children: T.JSArrayOfWidgetL().of([new basic.ClipPath.new({child: new container.Container.new({color: colors.Colors.black.withOpacity(0.8), $creationLocationd_0dea112b090073317d4: C[143] || CT.C143}), clipper: new profile_screen.GetClipper.new(), $creationLocationd_0dea112b090073317d4: C[146] || CT.C146}), new basic.Positioned.new({width: 350.0, top: dart.notNull(media_query.MediaQuery.of(context).size.height) / 5, child: new basic.Column.new({children: T.JSArrayOfWidgetL().of([new container.Container.new({width: 150.0, height: 150.0, decoration: new box_decoration.BoxDecoration.new({color: colors.Colors.red, image: new decoration_image.DecorationImage.new({image: new _network_image_web.NetworkImage.new("https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg"), fit: box_fit.BoxFit.cover}), borderRadius: new border_radius.BorderRadius.all(new ui.Radius.circular(75.0)), boxShadow: T.JSArrayOfBoxShadowL().of([new box_shadow.BoxShadow.new({blurRadius: 7.0, color: colors.Colors.black})])}), $creationLocationd_0dea112b090073317d4: C[150] || CT.C150}), new basic.SizedBox.new({height: 90.0, $creationLocationd_0dea112b090073317d4: C[155] || CT.C155}), new text.Text.new((t0 = bloc.user.fullname, t0 == null ? "" : t0), {style: new text_style.TextStyle.new({fontSize: 30.0, fontWeight: ui.FontWeight.bold}), $creationLocationd_0dea112b090073317d4: C[158] || CT.C158}), new the_sized_box.TheSizedBox.ultraSmallVertical({$creationLocationd_0dea112b090073317d4: C[162] || CT.C162}), new text.Text.new((t0$ = bloc.user.email, t0$ == null ? "" : t0$), {style: new text_style.TextStyle.new({fontSize: 17.0}), $creationLocationd_0dea112b090073317d4: C[163] || CT.C163}), new the_sized_box.TheSizedBox.ultraSmallVertical({$creationLocationd_0dea112b090073317d4: C[167] || CT.C167}), new text.Text.new(dart.dtest(validators.Validators.isNull(bloc.user.createAt)) ? "" : "Terdaftar pada :\n" + dart.notNull(new date_format.DateFormat.new("yyyy-MM-dd – kk:mm").format(core.DateTime.parse(bloc.user.createAt))), {style: new text_style.TextStyle.new({fontSize: 17.0}), textAlign: ui.TextAlign.center, $creationLocationd_0dea112b090073317d4: C[168] || CT.C168}), new the_sized_box.TheSizedBox.extraLargeVertical({$creationLocationd_0dea112b090073317d4: C[173] || CT.C173}), new container.Container.new({height: 30.0, width: 95.0, child: new material.Material.new({borderRadius: new border_radius.BorderRadius.circular(20.0), shadowColor: colors.Colors.redAccent, color: colors.Colors.red, elevation: 7.0, child: new gesture_detector.GestureDetector.new({onTap: dart.bind(bloc, 'logout'), child: new basic.Center.new({child: new text.Text.new("Log out", {style: new text_style.TextStyle.new({color: colors.Colors.white, fontFamily: "Montserrat"}), $creationLocationd_0dea112b090073317d4: C[174] || CT.C174}), $creationLocationd_0dea112b090073317d4: C[178] || CT.C178}), $creationLocationd_0dea112b090073317d4: C[181] || CT.C181}), $creationLocationd_0dea112b090073317d4: C[185] || CT.C185}), $creationLocationd_0dea112b090073317d4: C[192] || CT.C192})]), $creationLocationd_0dea112b090073317d4: C[197] || CT.C197}), $creationLocationd_0dea112b090073317d4: C[200] || CT.C200})]), $creationLocationd_0dea112b090073317d4: C[205] || CT.C205}), $creationLocationd_0dea112b090073317d4: C[208] || CT.C208}), $creationLocationd_0dea112b090073317d4: C[211] || CT.C211});
+    }
+  };
+  (profile_screen.ProfileScreen.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    profile_screen.ProfileScreen.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = profile_screen.ProfileScreen.prototype;
+  dart.addTypeTests(profile_screen.ProfileScreen);
+  dart.addTypeCaches(profile_screen.ProfileScreen);
+  dart.setMethodSignature(profile_screen.ProfileScreen, () => ({
+    __proto__: dart.getMethods(profile_screen.ProfileScreen.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
+  }));
+  dart.setLibraryUri(profile_screen.ProfileScreen, I[2]);
+  dart.defineLazy(profile_screen.ProfileScreen, {
+    /*profile_screen.ProfileScreen.routeName*/get routeName() {
+      return "/profile";
+    }
+  }, true);
+  profile_screen.GetClipper = class GetClipper extends proxy_box.CustomClipper$(dart.legacy(ui.Path)) {
+    getClip(size) {
+      let path = ui.Path.new();
+      path.lineTo(0.0, dart.notNull(size.height) / 1.9);
+      path.lineTo(dart.notNull(size.width) + 125, 0.0);
+      path.close();
+      return path;
+    }
+    shouldReclip(oldClipper) {
+      T.CustomClipperLOfPathL().as(oldClipper);
+      return true;
+    }
+  };
+  (profile_screen.GetClipper.new = function() {
+    profile_screen.GetClipper.__proto__.new.call(this);
+    ;
+  }).prototype = profile_screen.GetClipper.prototype;
+  dart.addTypeTests(profile_screen.GetClipper);
+  dart.addTypeCaches(profile_screen.GetClipper);
+  dart.setMethodSignature(profile_screen.GetClipper, () => ({
+    __proto__: dart.getMethods(profile_screen.GetClipper.__proto__),
+    getClip: dart.fnType(dart.legacy(ui.Path), [dart.legacy(ui.Size)]),
+    shouldReclip: dart.fnType(dart.legacy(core.bool), [dart.legacy(core.Object)])
+  }));
+  dart.setLibraryUri(profile_screen.GetClipper, I[2]);
+  var loader$ = dart.privateName(login_bloc, "LoginBloc.loader");
+  var scaffoldKey$ = dart.privateName(login_bloc, "LoginBloc.scaffoldKey");
+  var loginModel = dart.privateName(login_bloc, "LoginBloc.loginModel");
+  var emailController = dart.privateName(login_bloc, "LoginBloc.emailController");
+  var passwordController = dart.privateName(login_bloc, "LoginBloc.passwordController");
+  var _context$ = dart.privateName(login_bloc, "_context");
+  var _repository$ = dart.privateName(login_bloc, "_repository");
+  var _auth = dart.privateName(login_bloc, "_auth");
+  var _email = dart.privateName(login_bloc, "_email");
+  var _password = dart.privateName(login_bloc, "_password");
+  login_bloc.LoginBloc = class LoginBloc extends change_notifier.ChangeNotifier {
+    get loader() {
+      return this[loader$];
+    }
+    set loader(value) {
+      this[loader$] = value;
+    }
+    get scaffoldKey() {
+      return this[scaffoldKey$];
+    }
+    set scaffoldKey(value) {
+      super.scaffoldKey = value;
+    }
+    get loginModel() {
+      return this[loginModel];
+    }
+    set loginModel(value) {
+      this[loginModel] = value;
+    }
+    get emailController() {
+      return this[emailController];
+    }
+    set emailController(value) {
+      super.emailController = value;
+    }
+    get passwordController() {
+      return this[passwordController];
+    }
+    set passwordController(value) {
+      super.passwordController = value;
+    }
+    get email() {
+      return this[_email];
+    }
+    setEmail(email) {
+      this[_email] = email;
+      this.notifyListeners();
+    }
+    get password() {
+      return this[_password];
+    }
+    setPassword(password) {
+      this[_password] = password;
+      this.notifyListeners();
+    }
+    didMount(context) {
+      this[_context$] = T.BuildContextL().as(context);
+    }
+    onSubmit() {
+      return async.async(dart.dynamic, (function* onSubmit() {
+        try {
+          this.loader.showLoader(this[_context$]);
+          let userCredential = (yield firebase_auth.FirebaseAuth.instance.signInWithEmailAndPassword({email: this[_email], password: this[_password]}));
+          this.loader.hideLoader();
+        } catch (e$) {
+          let e = dart.getThrown(e$);
+          if (T.FirebaseAuthExceptionL().is(e)) {
+            if (e.code === "user-not-found") {
+              core.print("==> No user found for that email.");
+            } else if (e.code === "wrong-password") {
+              core.print("==> Wrong password provided for that user.");
+            }
+            this.loader.hideLoader();
+            custom_widget.customSnackBar(this.scaffoldKey, e.message, {backgroundColor: colors.Colors.redAccent});
+          } else
+            throw e$;
+        }
+      }).bind(this));
+    }
+    clearEmailValue() {
+      binding.WidgetsBinding.instance.addPostFrameCallback(dart.fn(_ => this.emailController.clear(), T.DurationLTovoid()));
+    }
+    clearPasswordValue() {
+      binding.WidgetsBinding.instance.addPostFrameCallback(dart.fn(_ => this.passwordController.clear(), T.DurationLTovoid()));
+    }
+  };
+  (login_bloc.LoginBloc.new = function() {
+    this[_context$] = null;
+    this[loader$] = the_loader.CustomLoader.new();
+    this[scaffoldKey$] = T.GlobalKeyOfScaffoldStateL().new();
+    this[_repository$] = new auth_sevice.AuthService.new();
+    this[_auth] = null;
+    this[loginModel] = new login_model.LoginModel.new();
+    this[emailController] = new editable_text.TextEditingController.new();
+    this[_email] = null;
+    this[passwordController] = new editable_text.TextEditingController.new();
+    this[_password] = null;
+    login_bloc.LoginBloc.__proto__.new.call(this);
+    this.emailController.addListener(dart.fn(() => {
+      this.setEmail(this.emailController.text);
+    }, T.VoidToNull()));
+    this.passwordController.addListener(dart.fn(() => {
+      this.setPassword(this.passwordController.text);
+    }, T.VoidToNull()));
+  }).prototype = login_bloc.LoginBloc.prototype;
+  dart.addTypeTests(login_bloc.LoginBloc);
+  dart.addTypeCaches(login_bloc.LoginBloc);
+  dart.setMethodSignature(login_bloc.LoginBloc, () => ({
+    __proto__: dart.getMethods(login_bloc.LoginBloc.__proto__),
+    setEmail: dart.fnType(dart.dynamic, [dart.legacy(core.String)]),
+    setPassword: dart.fnType(dart.dynamic, [dart.legacy(core.String)]),
+    didMount: dart.fnType(dart.dynamic, [dart.dynamic]),
+    onSubmit: dart.fnType(dart.dynamic, []),
+    clearEmailValue: dart.fnType(dart.dynamic, []),
+    clearPasswordValue: dart.fnType(dart.dynamic, [])
+  }));
+  dart.setGetterSignature(login_bloc.LoginBloc, () => ({
+    __proto__: dart.getGetters(login_bloc.LoginBloc.__proto__),
+    email: dart.legacy(core.String),
+    password: dart.legacy(core.String)
+  }));
+  dart.setLibraryUri(login_bloc.LoginBloc, I[3]);
+  dart.setFieldSignature(login_bloc.LoginBloc, () => ({
+    __proto__: dart.getFields(login_bloc.LoginBloc.__proto__),
+    [_context$]: dart.fieldType(dart.legacy(framework.BuildContext)),
+    loader: dart.fieldType(dart.legacy(the_loader.CustomLoader)),
+    scaffoldKey: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(scaffold.ScaffoldState)))),
+    [_repository$]: dart.finalFieldType(dart.legacy(auth_sevice.AuthService)),
+    [_auth]: dart.fieldType(dart.legacy(login_model.LoginResponseModel)),
+    loginModel: dart.fieldType(dart.legacy(login_model.LoginModel)),
+    emailController: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    [_email]: dart.fieldType(dart.legacy(core.String)),
+    passwordController: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    [_password]: dart.fieldType(dart.legacy(core.String))
+  }));
+  dart.trackLibraries("packages/flutter_challange/src/screens/auth/login_screen.dart", {
+    "package:flutter_challange/src/screens/auth/login_screen.dart": login_screen,
+    "package:flutter_challange/src/providers/user/user_bloc.dart": user_bloc,
+    "package:flutter_challange/src/screens/user/profile_screen.dart": profile_screen,
+    "package:flutter_challange/src/providers/auth/login_bloc.dart": login_bloc
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["login_screen.dart","../../providers/user/user_bloc.dart","../user/profile_screen.dart","../../providers/auth/login_bloc.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;UAiB4B;AAClB,iBAAgB,qCAAc,OAAO;AACrB,MAAtB,AAAK,IAAD,UAAU,OAAO;AAEf,sBAAuB,AAAY,0BAAT,OAAO;AAEvC,eAAO,YAAmB;YACC;YAAiB;AAC1C,cAAO,8BACE,qCACc,gDAAoB,oBAC3B,6CACI,AAAK,2CACQ,wCAAS,gBAE/B,0CACO,UAAU,gBACM,8CACrB,yCACgB,iCACE,qCAEZ,UAAU,cACX,mDACA,IAAI,UACM,8CACL,uDACgB,mCAAW,uBAAS,oBACnC,mCAAyB,wCAE1B,gDAAoB,kBAAgB;;;AAO7D,eAAO,aAAoB;;YAAiB;AAC1C,cAAO,yCACkB,yCACF,wCAAY,eACpB,8BACC,sCACE,6BACJ,kCACI,6BACK,qCAAwB,yBAEjC,kCACI,sBACK,qCAA2B,mFACtB;AACZ,+BAAQ;AACG,sBAAF,WAAT,SAAS;;;;;;AAQ3B,eAAO,kBAA+B;AACpC,cAAO,qCACE,AAAU,SAAD,eAET,4CACH,SAC8B,WAAnB,6BAAO,AAAK,IAAD,uBAAsB,6BAAO,AAAK,IAAD,cACjD,OACK,UAAL,IAAI;;;AAIlB,eAAO,mBAAgC;AACrC,cAAO,yCACgB,mCACd,sCACgC,yCACnB,yBAChB,mDACe,YACJ,uEACwB,wCAAS,gBAC1B,gCACH;6CACS,kDAAsB,gBAAc,eACjD,6BACa,yBACV,sBACJ,0CACQ,aACD,iEAET,+BAAgB,iEAChB,kBACE;;;AASlB,YAAO,6CACsB,sCACtB,AAAK,IAAD,sBACD,YAEF,6DACwB,gDACrB,mCACE,iDACE;AACU,mCAA0B,0BAAG,OAAO;AAEnD,+BAAK,AAAa,YAAD;AACO,kBAAtB,AAAa,YAAD;;yCAGT,yCACO,gDACE,yCACJ,wBACN,iBAAM,aACN,iBAAM,sBAES,oCACF,6CAEV,+BACa,yBAChB,gCACoB,wFAIpB,+BACO,YACC,YACC,YACM,sBACX,iCACY,2IAGhB,+BACwB,aAAjB,AAAU,SAAD,WAAU,SACF,aAAhB,AAAU,SAAD,UAAS,WACjB,kBACL,+CACU,cACW,0BACd,0CACS,qBACc,+CACL,6IAG7B,2EACkB,uBACI,mBACJ,cACL,SAAC,SAAS,qBACV,sCACa,AAAQ,6CAAiB,mBAC/B,oDACiB,8CACT,uBAAS,iBACR,uBAAS,gBAEX,oCAEZ,oEACO,gBAAgB,SACrB,0CACkC,6CACZ,iCACT,yBAChB,WAAW,CAAC,2BACI,AAAK,IAAD,oBACpB,WAAW,CAAC,8BACI,AAAK,IAAD,iCACJ,QACJ,8GACZ,YAAY,CAAC,gDACE;AAC+B,kCAAlC,AAAY,uBAAT,OAAO,yBAAY;sDAEtB,yGACZ,iBAAiB,CAAC,OAAO,GACb,yGACZ,oFAEA,gCAAiB;IAa/C;;;;;;EACF;;;;;;;;;MAnNsB,kCAAS;;;;;;;;;;ICMhB;;;;;;IACkB;;;;;;;AAIT;IAAK;gBACL;AACT,MAAX,cAAQ,GAAG;AACM,MAAjB;IACF;aAOS;AACW,uBAAlB,qBAAW,OAAO;IACpB;;AAEQ;AACA,oBAAO,MAAY;AACG,QAA5B,WAAM,AAAqB,4BAAL,IAAI;MAC5B;;;AAES;AACD,wBAAW,MAAM,AAAY;AACnC,sBAAI,AAAS,QAAD;AACa,UAAvB,eAAU,AAAS,QAAD;;AAGoB,UADtC,6BAAe,kBAAa,AAAS,QAAD,4BACR;AAG1B,UAFF,gBAAM,gCAAkB,KAAI;AAClB,YAAR;;;AAGJ,cAAO;MACT;;;AAEM;AACuB,QAA3B,AAAO,uBAAW;AACW,QAAX;AACmB,QAArC,MAAmB,AAAS;AACT,QAAnB,AAAO;MAET;;;;IA/Ca;IAEA,eAAS;IACS,oBAAkB;IAE3C,oBAAc;IACV,cAAQ;AAOlB;EAGA;;;;;;;;;;;;;;;;;;;;;;;;;;;;UCtB0B;;AACT,iBAAgB,oCAAa,OAAO;AAC7B,MAAtB,AAAK,IAAD,UAAU,OAAO;AAErB,YAAO,oCACK,+BACC,kBAAK,2IAET,AAAK,IAAD,oBACC,iCACI,+BACM,yBAChB,+BACS,oCAAwB,AAAM,gCAAY,4EACxC,kGAEX,iCACW,YACiC,aAAxB,AAAY,AAAK,0BAAd,OAAO,iBAAgB,UACnC,gCACa,yBAChB,oCACW,eACC,mBACI,6CACM,0BACP,iDACI,wCACH,2FACQ,sCACW,mCAAW,uBAAS,mBACpC,4BACT,0CAAsB,YAAmB,wFAEnD,gCAAiB,mEACjB,mBACqB,KAAnB,AAAK,AAAK,IAAN,gBAAM,aAAY,kBACf,wCACK,kBACa,mFAGf,+GACZ,mBACkB,MAAhB,AAAK,AAAK,IAAN,aAAM,cAAS,mBACZ,wCACK,qEAGF,+GACZ,6BACa,6BAAO,AAAK,AAAK,IAAN,mBAChB,KACA,AAAqB,oCACnB,AACK,+BADM,6BACU,oBAAM,AAAK,AAAK,IAAN,2BAChC,wCACK,mBAES,kFAEX,+GACZ,qCACY,aACD,aACA,yCACsB,wCAAS,oBAChB,gCACN,8BACH,YACJ,iDACO,UAAL,IAAI,oBACJ,6BACE,kBACL,mBACO,qCACW,iCACF;IAS9C;;;;;;EACF;;;;;;;;;MAzFsB,sCAAS;;;;;YA6FX;AACZ,iBAAW;AAEoB,MAAnC,AAAK,IAAD,QAAQ,KAAiB,aAAZ,AAAK,IAAD,WAAU;AACG,MAAlC,AAAK,IAAD,QAAmB,aAAX,AAAK,IAAD,UAAS,KAAK;AAClB,MAAZ,AAAK,IAAD;AACJ,YAAO,KAAI;IACb;;mCAGsC;AAEpC,YAAO;IACT;;;;;EACF;;;;;;;;;;;;;;;;;;;;ICtGe;;;;;;IACkB;;;;;;IAIpB;;;;;;IAEL;;;;;;IAQA;;;;;;;AANc;IAAM;aACV;AACA,MAAd,eAAS,KAAK;AACG,MAAjB;IACF;;AAIuB;IAAS;gBACb;AACG,MAApB,kBAAY,QAAQ;AACH,MAAjB;IACF;aAWS;AACW,wBAAlB,qBAAW,OAAO;IACpB;;AAEQ;AACN;AAC6B,UAA3B,AAAO,uBAAW;AACH,gCAAiB,MAAmB,AAC9C,uEAAkC,wBAAkB;AACtC,UAAnB,AAAO;;cACyB;AAAhC;AACA,gBAAI,AAAE,AAAK,CAAN,UAAS;AAC8B,cAA1C,WAAM;kBACD,KAAI,AAAE,AAAK,CAAN,UAAS;AACgC,cAAnD,WAAM;;AAEW,YAAnB,AAAO;AACkE,YAAzE,6BAAe,kBAAa,AAAE,CAAD,4BAAkC;;;;MAEnE;;;AAI2D,MAD1C,AACV,qDAAqB,QAAC,KAAM,AAAgB;IACnD;;AAI8D,MAD7C,AACV,qDAAqB,QAAC,KAAM,AAAmB;IACtD;;;IA/Da;IAEA,gBAAS;IACS,qBAAkB;IAE3C,qBAAc;IACD;IACR,mBAAa;IAElB,wBAAkB;IACjB;IAOD,2BAAqB;IACpB;AAOP;AAGI,IAFF,AAAgB,iCAAY;AACI,MAA9B,cAAS,AAAgB;;AAIzB,IAFF,AAAmB,oCAAY;AACO,MAApC,iBAAY,AAAmB;;EAEnC","file":"../../../../../../../../../packages/flutter_challange/src/screens/auth/login_screen.dart.lib.js"}');
+  // Exports:
+  return {
+    src__screens__auth__login_screen: login_screen,
+    src__providers__user__user_bloc: user_bloc,
+    src__screens__user__profile_screen: profile_screen,
+    src__providers__auth__login_bloc: login_bloc
+  };
+}));
+
+//# sourceMappingURL=login_screen.dart.lib.js.map

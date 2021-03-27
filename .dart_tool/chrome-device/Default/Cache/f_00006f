@@ -1,0 +1,1504 @@
+define(['dart_sdk', 'packages/flutter/src/services/keyboard_maps.dart', 'packages/flutter/src/services/keyboard_key.dart', 'packages/flutter/src/foundation/print.dart', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/services/system_channels.dart'], (function load__packages__flutter__src__services__raw_keyboard_windows_dart(dart_sdk, packages__flutter__src__services__keyboard_maps$46dart, packages__flutter__src__services__keyboard_key$46dart, packages__flutter__src__foundation__print$46dart, packages__flutter__src__foundation__object$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__services__system_channels$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _internal = dart_sdk._internal;
+  const _js_helper = dart_sdk._js_helper;
+  const _interceptors = dart_sdk._interceptors;
+  const async = dart_sdk.async;
+  const io = dart_sdk.io;
+  const collection = dart_sdk.collection;
+  const ui = dart_sdk.ui;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const keyboard_maps = packages__flutter__src__services__keyboard_maps$46dart.src__services__keyboard_maps;
+  const keyboard_key = packages__flutter__src__services__keyboard_key$46dart.src__services__keyboard_key;
+  const print = packages__flutter__src__foundation__print$46dart.src__foundation__print;
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const system_channels = packages__flutter__src__services__system_channels$46dart.src__services__system_channels;
+  var raw_keyboard_windows = Object.create(dart.library);
+  var raw_keyboard_web = Object.create(dart.library);
+  var raw_keyboard_macos = Object.create(dart.library);
+  var raw_keyboard_linux = Object.create(dart.library);
+  var raw_keyboard_ios = Object.create(dart.library);
+  var raw_keyboard_fuchsia = Object.create(dart.library);
+  var raw_keyboard_android = Object.create(dart.library);
+  var raw_keyboard = Object.create(dart.library);
+  var $_get = dartx._get;
+  var $isNotEmpty = dartx.isNotEmpty;
+  var $toUpperCase = dartx.toUpperCase;
+  var $runtimeType = dartx.runtimeType;
+  var $_set = dartx._set;
+  var $hashCode = dartx.hashCode;
+  var $codeUnitAt = dartx.codeUnitAt;
+  var $containsKey = dartx.containsKey;
+  var $add = dartx.add;
+  var $remove = dartx.remove;
+  var $contains = dartx.contains;
+  var $keys = dartx.keys;
+  var $forEach = dartx.forEach;
+  var $addAll = dartx.addAll;
+  var $values = dartx.values;
+  var $toSet = dartx.toSet;
+  var $clear = dartx.clear;
+  var $entries = dartx.entries;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    KeyboardSideN: () => (T.KeyboardSideN = dart.constFn(dart.nullable(raw_keyboard.KeyboardSide)))(),
+    intAndintAndintToKeyboardSideN: () => (T.intAndintAndintToKeyboardSideN = dart.constFn(dart.fnType(T.KeyboardSideN(), [core.int, core.int, core.int])))(),
+    LinkedMapOfModifierKey$KeyboardSide: () => (T.LinkedMapOfModifierKey$KeyboardSide = dart.constFn(_js_helper.LinkedMap$(raw_keyboard.ModifierKey, raw_keyboard.KeyboardSide)))(),
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    LogicalKeyboardKeyL: () => (T.LogicalKeyboardKeyL = dart.constFn(dart.legacy(keyboard_key.LogicalKeyboardKey)))(),
+    KeyboardSideL: () => (T.KeyboardSideL = dart.constFn(dart.legacy(raw_keyboard.KeyboardSide)))(),
+    ModifierKeyL: () => (T.ModifierKeyL = dart.constFn(dart.legacy(raw_keyboard.ModifierKey)))(),
+    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
+    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
+    DiagnosticsPropertyOfLogicalKeyboardKey: () => (T.DiagnosticsPropertyOfLogicalKeyboardKey = dart.constFn(diagnostics.DiagnosticsProperty$(keyboard_key.LogicalKeyboardKey)))(),
+    DiagnosticsPropertyOfPhysicalKeyboardKey: () => (T.DiagnosticsPropertyOfPhysicalKeyboardKey = dart.constFn(diagnostics.DiagnosticsProperty$(keyboard_key.PhysicalKeyboardKey)))(),
+    RawKeyEventTovoid: () => (T.RawKeyEventTovoid = dart.constFn(dart.fnType(dart.void, [raw_keyboard.RawKeyEvent])))(),
+    JSArrayOfRawKeyEventTovoid: () => (T.JSArrayOfRawKeyEventTovoid = dart.constFn(_interceptors.JSArray$(T.RawKeyEventTovoid())))(),
+    LinkedMapOfPhysicalKeyboardKey$LogicalKeyboardKey: () => (T.LinkedMapOfPhysicalKeyboardKey$LogicalKeyboardKey = dart.constFn(_js_helper.LinkedMap$(keyboard_key.PhysicalKeyboardKey, keyboard_key.LogicalKeyboardKey)))(),
+    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
+    ListOfRawKeyEventTovoid: () => (T.ListOfRawKeyEventTovoid = dart.constFn(core.List$(T.RawKeyEventTovoid())))(),
+    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
+    LinkedHashSetOfPhysicalKeyboardKey: () => (T.LinkedHashSetOfPhysicalKeyboardKey = dart.constFn(collection.LinkedHashSet$(keyboard_key.PhysicalKeyboardKey)))(),
+    SetOfPhysicalKeyboardKey: () => (T.SetOfPhysicalKeyboardKey = dart.constFn(core.Set$(keyboard_key.PhysicalKeyboardKey)))(),
+    LinkedMapOf_ModifierSidePair$SetOfPhysicalKeyboardKey: () => (T.LinkedMapOf_ModifierSidePair$SetOfPhysicalKeyboardKey = dart.constFn(_js_helper.LinkedMap$(raw_keyboard._ModifierSidePair, T.SetOfPhysicalKeyboardKey())))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: raw_keyboard.KeyboardSide.prototype,
+        [_name$]: "KeyboardSide.any",
+        index: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: raw_keyboard.KeyboardSide.prototype,
+        [_name$]: "KeyboardSide.all",
+        index: 3
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: raw_keyboard.KeyboardSide.prototype,
+        [_name$]: "KeyboardSide.left",
+        index: 1
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: raw_keyboard.KeyboardSide.prototype,
+        [_name$]: "KeyboardSide.right",
+        index: 2
+      });
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: raw_keyboard.ModifierKey.prototype,
+        [_name$]: "ModifierKey.controlModifier",
+        index: 0
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: raw_keyboard.ModifierKey.prototype,
+        [_name$]: "ModifierKey.shiftModifier",
+        index: 1
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: raw_keyboard.ModifierKey.prototype,
+        [_name$]: "ModifierKey.altModifier",
+        index: 2
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: raw_keyboard.ModifierKey.prototype,
+        [_name$]: "ModifierKey.metaModifier",
+        index: 3
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: raw_keyboard.ModifierKey.prototype,
+        [_name$]: "ModifierKey.capsLockModifier",
+        index: 4
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: raw_keyboard.ModifierKey.prototype,
+        [_name$]: "ModifierKey.scrollLockModifier",
+        index: 6
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: raw_keyboard.ModifierKey.prototype,
+        [_name$]: "ModifierKey.numLockModifier",
+        index: 5
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: raw_keyboard.ModifierKey.prototype,
+        [_name$]: "ModifierKey.functionModifier",
+        index: 7
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: raw_keyboard.ModifierKey.prototype,
+        [_name$]: "ModifierKey.symbolModifier",
+        index: 8
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "Escape",
+        [LogicalKeyboardKey_keyId]: 4295426089.0
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F1",
+        [LogicalKeyboardKey_keyId]: 4295426106.0
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F2",
+        [LogicalKeyboardKey_keyId]: 4295426107.0
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F3",
+        [LogicalKeyboardKey_keyId]: 4295426108.0
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F4",
+        [LogicalKeyboardKey_keyId]: 4295426109.0
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F5",
+        [LogicalKeyboardKey_keyId]: 4295426110.0
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F6",
+        [LogicalKeyboardKey_keyId]: 4295426111.0
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F7",
+        [LogicalKeyboardKey_keyId]: 4295426112.0
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F8",
+        [LogicalKeyboardKey_keyId]: 4295426113.0
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F9",
+        [LogicalKeyboardKey_keyId]: 4295426114.0
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F10",
+        [LogicalKeyboardKey_keyId]: 4295426115.0
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F11",
+        [LogicalKeyboardKey_keyId]: 4295426116.0
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "F12",
+        [LogicalKeyboardKey_keyId]: 4295426117.0
+      });
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "Arrow Up",
+        [LogicalKeyboardKey_keyId]: 4295426130.0
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "Arrow Down",
+        [LogicalKeyboardKey_keyId]: 4295426129.0
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "Arrow Left",
+        [LogicalKeyboardKey_keyId]: 4295426128.0
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "Arrow Right",
+        [LogicalKeyboardKey_keyId]: 4295426127.0
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "Home",
+        [LogicalKeyboardKey_keyId]: 4295426122.0
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "Enter",
+        [LogicalKeyboardKey_keyId]: 4295426088.0
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "Page Up",
+        [LogicalKeyboardKey_keyId]: 4295426123.0
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: keyboard_key.LogicalKeyboardKey.prototype,
+        [LogicalKeyboardKey_keyLabel]: "",
+        [LogicalKeyboardKey_debugName]: "Page Down",
+        [LogicalKeyboardKey_keyId]: 4295426126.0
+      });
+    },
+    get C13() {
+      return C[13] = dart.constMap(T.StringL(), T.LogicalKeyboardKeyL(), ["UIKeyInputEscape", C[14] || CT.C14, "UIKeyInputF1", C[15] || CT.C15, "UIKeyInputF2", C[16] || CT.C16, "UIKeyInputF3", C[17] || CT.C17, "UIKeyInputF4", C[18] || CT.C18, "UIKeyInputF5", C[19] || CT.C19, "UIKeyInputF6", C[20] || CT.C20, "UIKeyInputF7", C[21] || CT.C21, "UIKeyInputF8", C[22] || CT.C22, "UIKeyInputF9", C[23] || CT.C23, "UIKeyInputF10", C[24] || CT.C24, "UIKeyInputF11", C[25] || CT.C25, "UIKeyInputF12", C[26] || CT.C26, "UIKeyInputUpArrow", C[27] || CT.C27, "UIKeyInputDownArrow", C[28] || CT.C28, "UIKeyInputLeftArrow", C[29] || CT.C29, "UIKeyInputRightArrow", C[30] || CT.C30, "UIKeyInputHome", C[31] || CT.C31, "UIKeyInputEnd", C[32] || CT.C32, "UIKeyInputPageUp", C[33] || CT.C33, "UIKeyInputPageDown", C[34] || CT.C34]);
+    },
+    get C35() {
+      return C[35] = dart.constList([C[0] || CT.C0, C[2] || CT.C2, C[3] || CT.C3, C[1] || CT.C1], T.KeyboardSideL());
+    },
+    get C36() {
+      return C[36] = dart.constList([C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[10] || CT.C10, C[9] || CT.C9, C[11] || CT.C11, C[12] || CT.C12], T.ModifierKeyL());
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[2] || CT.C2,
+        [_ModifierSidePair_modifier]: C[6] || CT.C6
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[3] || CT.C3,
+        [_ModifierSidePair_modifier]: C[6] || CT.C6
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[1] || CT.C1,
+        [_ModifierSidePair_modifier]: C[6] || CT.C6
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[0] || CT.C0,
+        [_ModifierSidePair_modifier]: C[6] || CT.C6
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[2] || CT.C2,
+        [_ModifierSidePair_modifier]: C[5] || CT.C5
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[3] || CT.C3,
+        [_ModifierSidePair_modifier]: C[5] || CT.C5
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[1] || CT.C1,
+        [_ModifierSidePair_modifier]: C[5] || CT.C5
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[0] || CT.C0,
+        [_ModifierSidePair_modifier]: C[5] || CT.C5
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[2] || CT.C2,
+        [_ModifierSidePair_modifier]: C[4] || CT.C4
+      });
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[3] || CT.C3,
+        [_ModifierSidePair_modifier]: C[4] || CT.C4
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[1] || CT.C1,
+        [_ModifierSidePair_modifier]: C[4] || CT.C4
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[0] || CT.C0,
+        [_ModifierSidePair_modifier]: C[4] || CT.C4
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[2] || CT.C2,
+        [_ModifierSidePair_modifier]: C[7] || CT.C7
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[3] || CT.C3,
+        [_ModifierSidePair_modifier]: C[7] || CT.C7
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[1] || CT.C1,
+        [_ModifierSidePair_modifier]: C[7] || CT.C7
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[0] || CT.C0,
+        [_ModifierSidePair_modifier]: C[7] || CT.C7
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[1] || CT.C1,
+        [_ModifierSidePair_modifier]: C[8] || CT.C8
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[1] || CT.C1,
+        [_ModifierSidePair_modifier]: C[10] || CT.C10
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[1] || CT.C1,
+        [_ModifierSidePair_modifier]: C[9] || CT.C9
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: raw_keyboard._ModifierSidePair.prototype,
+        [_ModifierSidePair_side]: C[1] || CT.C1,
+        [_ModifierSidePair_modifier]: C[11] || CT.C11
+      });
+    }
+  }, false);
+  var C = Array(57).fill(void 0);
+  var I = [
+    "file:///C:/flutter/packages/flutter/lib/src/services/raw_keyboard_windows.dart",
+    "file:///C:/flutter/packages/flutter/lib/src/services/raw_keyboard.dart",
+    "package:flutter/src/services/raw_keyboard.dart",
+    "package:flutter/src/services/raw_keyboard_windows.dart",
+    "file:///C:/flutter/packages/flutter/lib/src/services/raw_keyboard_web.dart",
+    "package:flutter/src/services/raw_keyboard_web.dart",
+    "file:///C:/flutter/packages/flutter/lib/src/services/raw_keyboard_macos.dart",
+    "package:flutter/src/services/raw_keyboard_macos.dart",
+    "file:///C:/flutter/packages/flutter/lib/src/services/raw_keyboard_linux.dart",
+    "package:flutter/src/services/raw_keyboard_linux.dart",
+    "file:///C:/flutter/packages/flutter/lib/src/services/raw_keyboard_ios.dart",
+    "package:flutter/src/services/raw_keyboard_ios.dart",
+    "file:///C:/flutter/packages/flutter/lib/src/services/raw_keyboard_fuchsia.dart",
+    "package:flutter/src/services/raw_keyboard_fuchsia.dart",
+    "file:///C:/flutter/packages/flutter/lib/src/services/raw_keyboard_android.dart",
+    "package:flutter/src/services/raw_keyboard_android.dart"
+  ];
+  var keyCode$ = dart.privateName(raw_keyboard_windows, "RawKeyEventDataWindows.keyCode");
+  var scanCode$ = dart.privateName(raw_keyboard_windows, "RawKeyEventDataWindows.scanCode");
+  var characterCodePoint$ = dart.privateName(raw_keyboard_windows, "RawKeyEventDataWindows.characterCodePoint");
+  var modifiers$ = dart.privateName(raw_keyboard_windows, "RawKeyEventDataWindows.modifiers");
+  var _name$ = dart.privateName(raw_keyboard, "_name");
+  var _isLeftRightModifierPressed = dart.privateName(raw_keyboard_windows, "_isLeftRightModifierPressed");
+  raw_keyboard.RawKeyEventData = class RawKeyEventData extends core.Object {
+    get isControlPressed() {
+      return this.isModifierPressed(raw_keyboard.ModifierKey.controlModifier, {side: raw_keyboard.KeyboardSide.any});
+    }
+    get isShiftPressed() {
+      return this.isModifierPressed(raw_keyboard.ModifierKey.shiftModifier, {side: raw_keyboard.KeyboardSide.any});
+    }
+    get isAltPressed() {
+      return this.isModifierPressed(raw_keyboard.ModifierKey.altModifier, {side: raw_keyboard.KeyboardSide.any});
+    }
+    get isMetaPressed() {
+      return this.isModifierPressed(raw_keyboard.ModifierKey.metaModifier, {side: raw_keyboard.KeyboardSide.any});
+    }
+    get modifiersPressed() {
+      let result = new (T.LinkedMapOfModifierKey$KeyboardSide()).new();
+      for (let key of raw_keyboard.ModifierKey.values) {
+        if (dart.test(this.isModifierPressed(key))) {
+          let side = this.getModifierSide(key);
+          if (side != null) {
+            result[$_set](key, side);
+          }
+          if (!dart.test(dart.fn(() => {
+            if (side == null) {
+              print.debugPrint("Raw key data is returning inconsistent information for " + "pressed modifiers. isModifierPressed returns true for " + dart.str(key) + " " + "being pressed, but when getModifierSide is called, it says " + "that no modifiers are pressed.");
+              if (raw_keyboard_android.RawKeyEventDataAndroid.is(this)) {
+                print.debugPrint("Android raw key metaState: " + dart.str(raw_keyboard_android.RawKeyEventDataAndroid.as(this).metaState));
+              }
+            }
+            return true;
+          }, T.VoidTobool())())) dart.assertFailed(null, I[1], 175, 16, "(){\r\n          if (side == null) {\r\n            debugPrint('Raw key data is returning inconsistent information for '\r\n                'pressed modifiers. isModifierPressed returns true for $key '\r\n                'being pressed, but when getModifierSide is called, it says '\r\n                'that no modifiers are pressed.');\r\n            if (this is RawKeyEventDataAndroid) {\r\n              debugPrint('Android raw key metaState: ${(this as RawKeyEventDataAndroid).metaState}');\r\n            }\r\n          }\r\n          return true;\r\n        }()");
+        }
+      }
+      return result;
+    }
+  };
+  (raw_keyboard.RawKeyEventData.new = function() {
+    ;
+  }).prototype = raw_keyboard.RawKeyEventData.prototype;
+  dart.addTypeTests(raw_keyboard.RawKeyEventData);
+  dart.addTypeCaches(raw_keyboard.RawKeyEventData);
+  dart.setGetterSignature(raw_keyboard.RawKeyEventData, () => ({
+    __proto__: dart.getGetters(raw_keyboard.RawKeyEventData.__proto__),
+    isControlPressed: core.bool,
+    isShiftPressed: core.bool,
+    isAltPressed: core.bool,
+    isMetaPressed: core.bool,
+    modifiersPressed: core.Map$(raw_keyboard.ModifierKey, raw_keyboard.KeyboardSide)
+  }));
+  dart.setLibraryUri(raw_keyboard.RawKeyEventData, I[2]);
+  raw_keyboard_windows.RawKeyEventDataWindows = class RawKeyEventDataWindows extends raw_keyboard.RawKeyEventData {
+    get keyCode() {
+      return this[keyCode$];
+    }
+    set keyCode(value) {
+      super.keyCode = value;
+    }
+    get scanCode() {
+      return this[scanCode$];
+    }
+    set scanCode(value) {
+      super.scanCode = value;
+    }
+    get characterCodePoint() {
+      return this[characterCodePoint$];
+    }
+    set characterCodePoint(value) {
+      super.characterCodePoint = value;
+    }
+    get modifiers() {
+      return this[modifiers$];
+    }
+    set modifiers(value) {
+      super.modifiers = value;
+    }
+    get keyLabel() {
+      return this.characterCodePoint === 0 ? "" : core.String.fromCharCode(this.characterCodePoint);
+    }
+    get physicalKey() {
+      let t0;
+      t0 = keyboard_maps.kWindowsToPhysicalKey[$_get](this.scanCode);
+      return t0 == null ? keyboard_key.PhysicalKeyboardKey.none : t0;
+    }
+    get logicalKey() {
+      let t0;
+      let numPadKey = keyboard_maps.kWindowsNumPadMap[$_get](this.keyCode);
+      if (numPadKey != null) {
+        return numPadKey;
+      }
+      if (this.keyLabel[$isNotEmpty] && !dart.test(keyboard_key.LogicalKeyboardKey.isControlCharacter(this.keyLabel))) {
+        let keyId = (0 | (dart.notNull(this.characterCodePoint) & 4294967295.0) >>> 0) >>> 0;
+        t0 = keyboard_key.LogicalKeyboardKey.findKeyByKeyId(keyId);
+        return t0 == null ? new keyboard_key.LogicalKeyboardKey.new(keyId, {keyLabel: this.keyLabel, debugName: false ? null : "Key " + this.keyLabel[$toUpperCase]()}) : t0;
+      }
+      let newKey = keyboard_maps.kWindowsToLogicalKey[$_get](this.keyCode);
+      if (newKey != null) {
+        return newKey;
+      }
+      newKey == null ? newKey = new keyboard_key.LogicalKeyboardKey.new((30064771072.0 | dart.notNull(this.keyCode) | 1099511627776.0) >>> 0, {debugName: false ? null : "Unknown Windows key code " + dart.str(this.keyCode)}) : null;
+      return newKey;
+    }
+    [_isLeftRightModifierPressed](side, anyMask, leftMask, rightMask) {
+      if (side == null) dart.nullFailed(I[0], 100, 49, "side");
+      if (anyMask == null) dart.nullFailed(I[0], 100, 59, "anyMask");
+      if (leftMask == null) dart.nullFailed(I[0], 100, 72, "leftMask");
+      if (rightMask == null) dart.nullFailed(I[0], 100, 86, "rightMask");
+      if ((dart.notNull(this.modifiers) & dart.notNull(anyMask)) === 0 && (dart.notNull(this.modifiers) & dart.notNull(leftMask)) === 0 && (dart.notNull(this.modifiers) & dart.notNull(rightMask)) === 0) {
+        return false;
+      }
+      let anyOnly = (dart.notNull(this.modifiers) & (dart.notNull(leftMask) | dart.notNull(rightMask) | dart.notNull(anyMask)) >>> 0) >>> 0 === anyMask;
+      switch (side) {
+        case C[0] || CT.C0:
+        {
+          return true;
+        }
+        case C[1] || CT.C1:
+        {
+          return (dart.notNull(this.modifiers) & dart.notNull(leftMask)) !== 0 && (dart.notNull(this.modifiers) & dart.notNull(rightMask)) !== 0 || anyOnly;
+        }
+        case C[2] || CT.C2:
+        {
+          return (dart.notNull(this.modifiers) & dart.notNull(leftMask)) !== 0 || anyOnly;
+        }
+        case C[3] || CT.C3:
+        {
+          return (dart.notNull(this.modifiers) & dart.notNull(rightMask)) !== 0 || anyOnly;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    isModifierPressed(key, opts) {
+      if (key == null) dart.nullFailed(I[0], 124, 38, "key");
+      let side = opts && 'side' in opts ? opts.side : C[0] || CT.C0;
+      if (side == null) dart.nullFailed(I[0], 124, 57, "side");
+      let result = null;
+      switch (key) {
+        case C[4] || CT.C4:
+        {
+          result = this[_isLeftRightModifierPressed](side, 8, 16, 32);
+          break;
+        }
+        case C[5] || CT.C5:
+        {
+          result = this[_isLeftRightModifierPressed](side, 1, 2, 4);
+          break;
+        }
+        case C[6] || CT.C6:
+        {
+          result = this[_isLeftRightModifierPressed](side, 64, 128, 256);
+          break;
+        }
+        case C[7] || CT.C7:
+        {
+          result = this[_isLeftRightModifierPressed](side, (512 | 1024) >>> 0, 512, 1024);
+          break;
+        }
+        case C[8] || CT.C8:
+        {
+          result = (dart.notNull(this.modifiers) & 2048) !== 0;
+          break;
+        }
+        case C[9] || CT.C9:
+        {
+          result = (dart.notNull(this.modifiers) & 8192) !== 0;
+          break;
+        }
+        case C[10] || CT.C10:
+        {
+          result = (dart.notNull(this.modifiers) & 4096) !== 0;
+          break;
+        }
+        case C[11] || CT.C11:
+        case C[12] || CT.C12:
+        {
+          result = false;
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+      if (!(!dart.test(result) || this.getModifierSide(key) != null)) dart.assertFailed(dart.str(this[$runtimeType]) + " thinks that a modifier is pressed, but can't figure out what side it's on.", I[0], 156, 12, "!result || getModifierSide(key) != null");
+      return result;
+    }
+    getModifierSide(key) {
+      if (key == null) dart.nullFailed(I[0], 162, 45, "key");
+      const findSide = (leftMask, rightMask, anyMask) => {
+        if (leftMask == null) dart.nullFailed(I[0], 163, 32, "leftMask");
+        if (rightMask == null) dart.nullFailed(I[0], 163, 46, "rightMask");
+        if (anyMask == null) dart.nullFailed(I[0], 163, 61, "anyMask");
+        let combinedMask = (dart.notNull(leftMask) | dart.notNull(rightMask)) >>> 0;
+        let combined = (dart.notNull(this.modifiers) & combinedMask) >>> 0;
+        if (combined === leftMask) {
+          return raw_keyboard.KeyboardSide.left;
+        } else if (combined === rightMask) {
+          return raw_keyboard.KeyboardSide.right;
+        } else if (combined === combinedMask || (dart.notNull(this.modifiers) & (combinedMask | dart.notNull(anyMask)) >>> 0) >>> 0 === anyMask) {
+          return raw_keyboard.KeyboardSide.all;
+        }
+        return null;
+      };
+      dart.fn(findSide, T.intAndintAndintToKeyboardSideN());
+      switch (key) {
+        case C[4] || CT.C4:
+        {
+          return findSide(16, 32, 8);
+        }
+        case C[5] || CT.C5:
+        {
+          return findSide(2, 4, 1);
+        }
+        case C[6] || CT.C6:
+        {
+          return findSide(128, 256, 64);
+        }
+        case C[7] || CT.C7:
+        {
+          return findSide(512, 1024, 0);
+        }
+        case C[8] || CT.C8:
+        case C[10] || CT.C10:
+        case C[9] || CT.C9:
+        case C[11] || CT.C11:
+        case C[12] || CT.C12:
+        {
+          return raw_keyboard.KeyboardSide.all;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+  };
+  (raw_keyboard_windows.RawKeyEventDataWindows.new = function(opts) {
+    let keyCode = opts && 'keyCode' in opts ? opts.keyCode : 0;
+    if (keyCode == null) dart.nullFailed(I[0], 26, 10, "keyCode");
+    let scanCode = opts && 'scanCode' in opts ? opts.scanCode : 0;
+    if (scanCode == null) dart.nullFailed(I[0], 27, 10, "scanCode");
+    let characterCodePoint = opts && 'characterCodePoint' in opts ? opts.characterCodePoint : 0;
+    if (characterCodePoint == null) dart.nullFailed(I[0], 28, 10, "characterCodePoint");
+    let modifiers = opts && 'modifiers' in opts ? opts.modifiers : 0;
+    if (modifiers == null) dart.nullFailed(I[0], 29, 10, "modifiers");
+    this[keyCode$] = keyCode;
+    this[scanCode$] = scanCode;
+    this[characterCodePoint$] = characterCodePoint;
+    this[modifiers$] = modifiers;
+    if (!(keyCode != null)) dart.assertFailed(null, I[0], 30, 15, "keyCode != null");
+    if (!(scanCode != null)) dart.assertFailed(null, I[0], 31, 15, "scanCode != null");
+    if (!(characterCodePoint != null)) dart.assertFailed(null, I[0], 32, 15, "characterCodePoint != null");
+    if (!(modifiers != null)) dart.assertFailed(null, I[0], 33, 15, "modifiers != null");
+    raw_keyboard_windows.RawKeyEventDataWindows.__proto__.new.call(this);
+    ;
+  }).prototype = raw_keyboard_windows.RawKeyEventDataWindows.prototype;
+  dart.addTypeTests(raw_keyboard_windows.RawKeyEventDataWindows);
+  dart.addTypeCaches(raw_keyboard_windows.RawKeyEventDataWindows);
+  dart.setMethodSignature(raw_keyboard_windows.RawKeyEventDataWindows, () => ({
+    __proto__: dart.getMethods(raw_keyboard_windows.RawKeyEventDataWindows.__proto__),
+    [_isLeftRightModifierPressed]: dart.fnType(core.bool, [raw_keyboard.KeyboardSide, core.int, core.int, core.int]),
+    isModifierPressed: dart.fnType(core.bool, [raw_keyboard.ModifierKey], {side: raw_keyboard.KeyboardSide}, {}),
+    getModifierSide: dart.fnType(dart.nullable(raw_keyboard.KeyboardSide), [raw_keyboard.ModifierKey])
+  }));
+  dart.setGetterSignature(raw_keyboard_windows.RawKeyEventDataWindows, () => ({
+    __proto__: dart.getGetters(raw_keyboard_windows.RawKeyEventDataWindows.__proto__),
+    keyLabel: core.String,
+    physicalKey: keyboard_key.PhysicalKeyboardKey,
+    logicalKey: keyboard_key.LogicalKeyboardKey
+  }));
+  dart.setLibraryUri(raw_keyboard_windows.RawKeyEventDataWindows, I[3]);
+  dart.setFieldSignature(raw_keyboard_windows.RawKeyEventDataWindows, () => ({
+    __proto__: dart.getFields(raw_keyboard_windows.RawKeyEventDataWindows.__proto__),
+    keyCode: dart.finalFieldType(core.int),
+    scanCode: dart.finalFieldType(core.int),
+    characterCodePoint: dart.finalFieldType(core.int),
+    modifiers: dart.finalFieldType(core.int)
+  }));
+  dart.defineLazy(raw_keyboard_windows.RawKeyEventDataWindows, {
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierShift*/get modifierShift() {
+      return 1;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierLeftShift*/get modifierLeftShift() {
+      return 2;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierRightShift*/get modifierRightShift() {
+      return 4;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierControl*/get modifierControl() {
+      return 8;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierLeftControl*/get modifierLeftControl() {
+      return 16;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierRightControl*/get modifierRightControl() {
+      return 32;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierAlt*/get modifierAlt() {
+      return 64;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierLeftAlt*/get modifierLeftAlt() {
+      return 128;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierRightAlt*/get modifierRightAlt() {
+      return 256;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierLeftMeta*/get modifierLeftMeta() {
+      return 512;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierRightMeta*/get modifierRightMeta() {
+      return 1024;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierCaps*/get modifierCaps() {
+      return 2048;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierNumLock*/get modifierNumLock() {
+      return 4096;
+    },
+    /*raw_keyboard_windows.RawKeyEventDataWindows.modifierScrollLock*/get modifierScrollLock() {
+      return 8192;
+    }
+  }, false);
+  var code$ = dart.privateName(raw_keyboard_web, "RawKeyEventDataWeb.code");
+  var key$ = dart.privateName(raw_keyboard_web, "RawKeyEventDataWeb.key");
+  var metaState$ = dart.privateName(raw_keyboard_web, "RawKeyEventDataWeb.metaState");
+  raw_keyboard_web.RawKeyEventDataWeb = class RawKeyEventDataWeb extends raw_keyboard.RawKeyEventData {
+    get code() {
+      return this[code$];
+    }
+    set code(value) {
+      super.code = value;
+    }
+    get key() {
+      return this[key$];
+    }
+    set key(value) {
+      super.key = value;
+    }
+    get metaState() {
+      return this[metaState$];
+    }
+    set metaState(value) {
+      super.metaState = value;
+    }
+    get keyLabel() {
+      return this.key === "Unidentified" ? "" : this.key;
+    }
+    get physicalKey() {
+      let t0;
+      t0 = keyboard_maps.kWebToPhysicalKey[$_get](this.code);
+      return t0 == null ? keyboard_key.PhysicalKeyboardKey.none : t0;
+    }
+    get logicalKey() {
+      let numPadKey = keyboard_maps.kWebNumPadMap[$_get](this.code);
+      if (numPadKey != null) {
+        return numPadKey;
+      }
+      let newKey = keyboard_maps.kWebToLogicalKey[$_get](this.code);
+      if (newKey != null) {
+        return newKey;
+      }
+      return new keyboard_key.LogicalKeyboardKey.new((34359738368.0 | dart.hashCode(this.code) | 1099511627776.0) >>> 0, {debugName: false ? null : "Unknown Web code \"" + dart.str(this.code) + "\""});
+    }
+    isModifierPressed(key, opts) {
+      if (key == null) dart.nullFailed(I[4], 93, 17, "key");
+      let side = opts && 'side' in opts ? opts.side : C[0] || CT.C0;
+      if (side == null) dart.nullFailed(I[4], 94, 18, "side");
+      switch (key) {
+        case C[4] || CT.C4:
+        {
+          return (dart.notNull(this.metaState) & 4) !== 0;
+        }
+        case C[5] || CT.C5:
+        {
+          return (dart.notNull(this.metaState) & 1) !== 0;
+        }
+        case C[6] || CT.C6:
+        {
+          return (dart.notNull(this.metaState) & 2) !== 0;
+        }
+        case C[7] || CT.C7:
+        {
+          return (dart.notNull(this.metaState) & 8) !== 0;
+        }
+        case C[10] || CT.C10:
+        {
+          return (dart.notNull(this.metaState) & 16) !== 0;
+        }
+        case C[8] || CT.C8:
+        {
+          return (dart.notNull(this.metaState) & 32) !== 0;
+        }
+        case C[9] || CT.C9:
+        {
+          return (dart.notNull(this.metaState) & 64) !== 0;
+        }
+        case C[11] || CT.C11:
+        case C[12] || CT.C12:
+        {
+          return false;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    getModifierSide(key) {
+      if (key == null) dart.nullFailed(I[4], 119, 44, "key");
+      return raw_keyboard.KeyboardSide.all;
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "RawKeyEventDataWeb")) + "(keyLabel: " + dart.str(this.keyLabel) + ", code: " + dart.str(this.code) + ", " + "metaState: " + dart.str(this.metaState) + ", modifiers down: " + dart.str(this.modifiersPressed) + ")";
+    }
+  };
+  (raw_keyboard_web.RawKeyEventDataWeb.new = function(opts) {
+    let code = opts && 'code' in opts ? opts.code : null;
+    if (code == null) dart.nullFailed(I[4], 23, 19, "code");
+    let key = opts && 'key' in opts ? opts.key : null;
+    if (key == null) dart.nullFailed(I[4], 24, 19, "key");
+    let metaState = opts && 'metaState' in opts ? opts.metaState : 0;
+    if (metaState == null) dart.nullFailed(I[4], 25, 10, "metaState");
+    this[code$] = code;
+    this[key$] = key;
+    this[metaState$] = metaState;
+    if (!(code != null)) dart.assertFailed(null, I[4], 26, 16, "code != null");
+    if (!(metaState != null)) dart.assertFailed(null, I[4], 27, 16, "metaState != null");
+    raw_keyboard_web.RawKeyEventDataWeb.__proto__.new.call(this);
+    ;
+  }).prototype = raw_keyboard_web.RawKeyEventDataWeb.prototype;
+  dart.addTypeTests(raw_keyboard_web.RawKeyEventDataWeb);
+  dart.addTypeCaches(raw_keyboard_web.RawKeyEventDataWeb);
+  dart.setMethodSignature(raw_keyboard_web.RawKeyEventDataWeb, () => ({
+    __proto__: dart.getMethods(raw_keyboard_web.RawKeyEventDataWeb.__proto__),
+    isModifierPressed: dart.fnType(core.bool, [raw_keyboard.ModifierKey], {side: raw_keyboard.KeyboardSide}, {}),
+    getModifierSide: dart.fnType(raw_keyboard.KeyboardSide, [raw_keyboard.ModifierKey])
+  }));
+  dart.setGetterSignature(raw_keyboard_web.RawKeyEventDataWeb, () => ({
+    __proto__: dart.getGetters(raw_keyboard_web.RawKeyEventDataWeb.__proto__),
+    keyLabel: core.String,
+    physicalKey: keyboard_key.PhysicalKeyboardKey,
+    logicalKey: keyboard_key.LogicalKeyboardKey
+  }));
+  dart.setLibraryUri(raw_keyboard_web.RawKeyEventDataWeb, I[5]);
+  dart.setFieldSignature(raw_keyboard_web.RawKeyEventDataWeb, () => ({
+    __proto__: dart.getFields(raw_keyboard_web.RawKeyEventDataWeb.__proto__),
+    code: dart.finalFieldType(core.String),
+    key: dart.finalFieldType(core.String),
+    metaState: dart.finalFieldType(core.int)
+  }));
+  dart.defineExtensionMethods(raw_keyboard_web.RawKeyEventDataWeb, ['toString']);
+  dart.defineLazy(raw_keyboard_web.RawKeyEventDataWeb, {
+    /*raw_keyboard_web.RawKeyEventDataWeb.modifierNone*/get modifierNone() {
+      return 0;
+    },
+    /*raw_keyboard_web.RawKeyEventDataWeb.modifierShift*/get modifierShift() {
+      return 1;
+    },
+    /*raw_keyboard_web.RawKeyEventDataWeb.modifierAlt*/get modifierAlt() {
+      return 2;
+    },
+    /*raw_keyboard_web.RawKeyEventDataWeb.modifierControl*/get modifierControl() {
+      return 4;
+    },
+    /*raw_keyboard_web.RawKeyEventDataWeb.modifierMeta*/get modifierMeta() {
+      return 8;
+    },
+    /*raw_keyboard_web.RawKeyEventDataWeb.modifierNumLock*/get modifierNumLock() {
+      return 16;
+    },
+    /*raw_keyboard_web.RawKeyEventDataWeb.modifierCapsLock*/get modifierCapsLock() {
+      return 32;
+    },
+    /*raw_keyboard_web.RawKeyEventDataWeb.modifierScrollLock*/get modifierScrollLock() {
+      return 64;
+    }
+  }, false);
+  var characters$ = dart.privateName(raw_keyboard_macos, "RawKeyEventDataMacOs.characters");
+  var charactersIgnoringModifiers$ = dart.privateName(raw_keyboard_macos, "RawKeyEventDataMacOs.charactersIgnoringModifiers");
+  var keyCode$0 = dart.privateName(raw_keyboard_macos, "RawKeyEventDataMacOs.keyCode");
+  var modifiers$0 = dart.privateName(raw_keyboard_macos, "RawKeyEventDataMacOs.modifiers");
+  var _isLeftRightModifierPressed$ = dart.privateName(raw_keyboard_macos, "_isLeftRightModifierPressed");
+  raw_keyboard_macos.RawKeyEventDataMacOs = class RawKeyEventDataMacOs extends raw_keyboard.RawKeyEventData {
+    get characters() {
+      return this[characters$];
+    }
+    set characters(value) {
+      super.characters = value;
+    }
+    get charactersIgnoringModifiers() {
+      return this[charactersIgnoringModifiers$];
+    }
+    set charactersIgnoringModifiers(value) {
+      super.charactersIgnoringModifiers = value;
+    }
+    get keyCode() {
+      return this[keyCode$0];
+    }
+    set keyCode(value) {
+      super.keyCode = value;
+    }
+    get modifiers() {
+      return this[modifiers$0];
+    }
+    set modifiers(value) {
+      super.modifiers = value;
+    }
+    get keyLabel() {
+      return this.charactersIgnoringModifiers;
+    }
+    get physicalKey() {
+      let t0;
+      t0 = keyboard_maps.kMacOsToPhysicalKey[$_get](this.keyCode);
+      return t0 == null ? keyboard_key.PhysicalKeyboardKey.none : t0;
+    }
+    get logicalKey() {
+      let t0, t1, t0$;
+      let numPadKey = keyboard_maps.kMacOsNumPadMap[$_get](this.keyCode);
+      if (numPadKey != null) {
+        return numPadKey;
+      }
+      if (this.keyLabel[$isNotEmpty] && !dart.test(keyboard_key.LogicalKeyboardKey.isControlCharacter(this.keyLabel)) && !dart.test(raw_keyboard_macos.RawKeyEventDataMacOs._isUnprintableKey(this.keyLabel))) {
+        if (!(this.charactersIgnoringModifiers.length <= 2)) dart.assertFailed(null, I[6], 90, 14, "charactersIgnoringModifiers.length <= 2");
+        let codeUnit = this.charactersIgnoringModifiers[$codeUnitAt](0);
+        if (this.charactersIgnoringModifiers.length === 2) {
+          let secondCode = this.charactersIgnoringModifiers[$codeUnitAt](1);
+          codeUnit = (codeUnit << 16 | secondCode) >>> 0;
+        }
+        let keyId = (0 | (codeUnit & 4294967295.0) >>> 0) >>> 0;
+        t0 = keyboard_key.LogicalKeyboardKey.findKeyByKeyId(keyId);
+        return t0 == null ? new keyboard_key.LogicalKeyboardKey.new(keyId, {keyLabel: this.keyLabel, debugName: false ? null : "Key " + this.keyLabel[$toUpperCase]()}) : t0;
+      }
+      if (!dart.equals(this.physicalKey, keyboard_key.PhysicalKeyboardKey.none)) {
+        let keyId = (dart.notNull(this.physicalKey.usbHidUsage) | 4294967296.0) >>> 0;
+        t0$ = keyboard_key.LogicalKeyboardKey.findKeyByKeyId(keyId);
+        return t0$ == null ? new keyboard_key.LogicalKeyboardKey.new(keyId, {keyLabel: (t1 = this.physicalKey.debugName, t1 == null ? "" : t1), debugName: this.physicalKey.debugName}) : t0$;
+      }
+      return new keyboard_key.LogicalKeyboardKey.new((21474836480.0 | dart.notNull(this.keyCode) | 1099511627776.0) >>> 0, {debugName: false ? null : "Unknown macOS key code " + dart.str(this.keyCode)});
+    }
+    [_isLeftRightModifierPressed$](side, anyMask, leftMask, rightMask) {
+      if (side == null) dart.nullFailed(I[6], 130, 49, "side");
+      if (anyMask == null) dart.nullFailed(I[6], 130, 59, "anyMask");
+      if (leftMask == null) dart.nullFailed(I[6], 130, 72, "leftMask");
+      if (rightMask == null) dart.nullFailed(I[6], 130, 86, "rightMask");
+      if ((dart.notNull(this.modifiers) & dart.notNull(anyMask)) === 0) {
+        return false;
+      }
+      let anyOnly = (dart.notNull(this.modifiers) & (dart.notNull(leftMask) | dart.notNull(rightMask) | dart.notNull(anyMask)) >>> 0) >>> 0 === anyMask;
+      switch (side) {
+        case C[0] || CT.C0:
+        {
+          return true;
+        }
+        case C[1] || CT.C1:
+        {
+          return (dart.notNull(this.modifiers) & dart.notNull(leftMask)) !== 0 && (dart.notNull(this.modifiers) & dart.notNull(rightMask)) !== 0 || anyOnly;
+        }
+        case C[2] || CT.C2:
+        {
+          return (dart.notNull(this.modifiers) & dart.notNull(leftMask)) !== 0 || anyOnly;
+        }
+        case C[3] || CT.C3:
+        {
+          return (dart.notNull(this.modifiers) & dart.notNull(rightMask)) !== 0 || anyOnly;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    isModifierPressed(key, opts) {
+      if (key == null) dart.nullFailed(I[6], 152, 38, "key");
+      let side = opts && 'side' in opts ? opts.side : C[0] || CT.C0;
+      if (side == null) dart.nullFailed(I[6], 152, 57, "side");
+      let independentModifier = (dart.notNull(this.modifiers) & 4294901760.0) >>> 0;
+      let result = null;
+      switch (key) {
+        case C[4] || CT.C4:
+        {
+          result = this[_isLeftRightModifierPressed$](side, (independentModifier & 262144) >>> 0, 1, 8192);
+          break;
+        }
+        case C[5] || CT.C5:
+        {
+          result = this[_isLeftRightModifierPressed$](side, (independentModifier & 131072) >>> 0, 2, 4);
+          break;
+        }
+        case C[6] || CT.C6:
+        {
+          result = this[_isLeftRightModifierPressed$](side, (independentModifier & 524288) >>> 0, 32, 64);
+          break;
+        }
+        case C[7] || CT.C7:
+        {
+          result = this[_isLeftRightModifierPressed$](side, (independentModifier & 1048576) >>> 0, 8, 16);
+          break;
+        }
+        case C[8] || CT.C8:
+        {
+          result = (independentModifier & 65536) !== 0;
+          break;
+        }
+        case C[11] || CT.C11:
+        case C[10] || CT.C10:
+        case C[12] || CT.C12:
+        case C[9] || CT.C9:
+        {
+          result = false;
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+      if (!(!dart.test(result) || this.getModifierSide(key) != null)) dart.assertFailed(dart.str(this[$runtimeType]) + " thinks that a modifier is pressed, but can't figure out what side it's on.", I[6], 183, 12, "!result || getModifierSide(key) != null");
+      return result;
+    }
+    getModifierSide(key) {
+      if (key == null) dart.nullFailed(I[6], 188, 45, "key");
+      const findSide = (anyMask, leftMask, rightMask) => {
+        if (anyMask == null) dart.nullFailed(I[6], 189, 32, "anyMask");
+        if (leftMask == null) dart.nullFailed(I[6], 189, 45, "leftMask");
+        if (rightMask == null) dart.nullFailed(I[6], 189, 59, "rightMask");
+        let combinedMask = (dart.notNull(leftMask) | dart.notNull(rightMask)) >>> 0;
+        let combined = (dart.notNull(this.modifiers) & combinedMask) >>> 0;
+        if (combined === leftMask) {
+          return raw_keyboard.KeyboardSide.left;
+        } else if (combined === rightMask) {
+          return raw_keyboard.KeyboardSide.right;
+        } else if (combined === combinedMask || (dart.notNull(this.modifiers) & (combinedMask | dart.notNull(anyMask)) >>> 0) >>> 0 === anyMask) {
+          return raw_keyboard.KeyboardSide.all;
+        }
+        return null;
+      };
+      dart.fn(findSide, T.intAndintAndintToKeyboardSideN());
+      switch (key) {
+        case C[4] || CT.C4:
+        {
+          return findSide(262144, 1, 8192);
+        }
+        case C[5] || CT.C5:
+        {
+          return findSide(131072, 2, 4);
+        }
+        case C[6] || CT.C6:
+        {
+          return findSide(524288, 32, 64);
+        }
+        case C[7] || CT.C7:
+        {
+          return findSide(1048576, 8, 16);
+        }
+        case C[8] || CT.C8:
+        case C[10] || CT.C10:
+        case C[9] || CT.C9:
+        case C[11] || CT.C11:
+        case C[12] || CT.C12:
+        {
+          return raw_keyboard.KeyboardSide.all;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    static _isUnprintableKey(label) {
+      if (label == null) dart.nullFailed(I[6], 233, 40, "label");
+      if (label.length !== 1) {
+        return false;
+      }
+      let codeUnit = label[$codeUnitAt](0);
+      return codeUnit >= 63232 && codeUnit <= 63743;
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "RawKeyEventDataMacOs")) + "(keyLabel: " + dart.str(this.keyLabel) + ", keyCode: " + dart.str(this.keyCode) + ", characters: " + dart.str(this.characters) + "," + " unmodifiedCharacters: " + dart.str(this.charactersIgnoringModifiers) + ", modifiers: " + dart.str(this.modifiers) + ", " + "modifiers down: " + dart.str(this.modifiersPressed) + ")";
+    }
+  };
+  (raw_keyboard_macos.RawKeyEventDataMacOs.new = function(opts) {
+    let characters = opts && 'characters' in opts ? opts.characters : "";
+    if (characters == null) dart.nullFailed(I[6], 26, 10, "characters");
+    let charactersIgnoringModifiers = opts && 'charactersIgnoringModifiers' in opts ? opts.charactersIgnoringModifiers : "";
+    if (charactersIgnoringModifiers == null) dart.nullFailed(I[6], 27, 10, "charactersIgnoringModifiers");
+    let keyCode = opts && 'keyCode' in opts ? opts.keyCode : 0;
+    if (keyCode == null) dart.nullFailed(I[6], 28, 10, "keyCode");
+    let modifiers = opts && 'modifiers' in opts ? opts.modifiers : 0;
+    if (modifiers == null) dart.nullFailed(I[6], 29, 10, "modifiers");
+    this[characters$] = characters;
+    this[charactersIgnoringModifiers$] = charactersIgnoringModifiers;
+    this[keyCode$0] = keyCode;
+    this[modifiers$0] = modifiers;
+    if (!(characters != null)) dart.assertFailed(null, I[6], 30, 15, "characters != null");
+    if (!(charactersIgnoringModifiers != null)) dart.assertFailed(null, I[6], 31, 15, "charactersIgnoringModifiers != null");
+    if (!(keyCode != null)) dart.assertFailed(null, I[6], 32, 15, "keyCode != null");
+    if (!(modifiers != null)) dart.assertFailed(null, I[6], 33, 15, "modifiers != null");
+    raw_keyboard_macos.RawKeyEventDataMacOs.__proto__.new.call(this);
+    ;
+  }).prototype = raw_keyboard_macos.RawKeyEventDataMacOs.prototype;
+  dart.addTypeTests(raw_keyboard_macos.RawKeyEventDataMacOs);
+  dart.addTypeCaches(raw_keyboard_macos.RawKeyEventDataMacOs);
+  dart.setMethodSignature(raw_keyboard_macos.RawKeyEventDataMacOs, () => ({
+    __proto__: dart.getMethods(raw_keyboard_macos.RawKeyEventDataMacOs.__proto__),
+    [_isLeftRightModifierPressed$]: dart.fnType(core.bool, [raw_keyboard.KeyboardSide, core.int, core.int, core.int]),
+    isModifierPressed: dart.fnType(core.bool, [raw_keyboard.ModifierKey], {side: raw_keyboard.KeyboardSide}, {}),
+    getModifierSide: dart.fnType(dart.nullable(raw_keyboard.KeyboardSide), [raw_keyboard.ModifierKey])
+  }));
+  dart.setGetterSignature(raw_keyboard_macos.RawKeyEventDataMacOs, () => ({
+    __proto__: dart.getGetters(raw_keyboard_macos.RawKeyEventDataMacOs.__proto__),
+    keyLabel: core.String,
+    physicalKey: keyboard_key.PhysicalKeyboardKey,
+    logicalKey: keyboard_key.LogicalKeyboardKey
+  }));
+  dart.setLibraryUri(raw_keyboard_macos.RawKeyEventDataMacOs, I[7]);
+  dart.setFieldSignature(raw_keyboard_macos.RawKeyEventDataMacOs, () => ({
+    __proto__: dart.getFields(raw_keyboard_macos.RawKeyEventDataMacOs.__proto__),
+    characters: dart.finalFieldType(core.String),
+    charactersIgnoringModifiers: dart.finalFieldType(core.String),
+    keyCode: dart.finalFieldType(core.int),
+    modifiers: dart.finalFieldType(core.int)
+  }));
+  dart.defineExtensionMethods(raw_keyboard_macos.RawKeyEventDataMacOs, ['toString']);
+  dart.defineLazy(raw_keyboard_macos.RawKeyEventDataMacOs, {
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierCapsLock*/get modifierCapsLock() {
+      return 65536;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierShift*/get modifierShift() {
+      return 131072;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierLeftShift*/get modifierLeftShift() {
+      return 2;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierRightShift*/get modifierRightShift() {
+      return 4;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierControl*/get modifierControl() {
+      return 262144;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierLeftControl*/get modifierLeftControl() {
+      return 1;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierRightControl*/get modifierRightControl() {
+      return 8192;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierOption*/get modifierOption() {
+      return 524288;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierLeftOption*/get modifierLeftOption() {
+      return 32;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierRightOption*/get modifierRightOption() {
+      return 64;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierCommand*/get modifierCommand() {
+      return 1048576;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierLeftCommand*/get modifierLeftCommand() {
+      return 8;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierRightCommand*/get modifierRightCommand() {
+      return 16;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierNumericPad*/get modifierNumericPad() {
+      return 2097152;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierHelp*/get modifierHelp() {
+      return 4194304;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.modifierFunction*/get modifierFunction() {
+      return 8388608;
+    },
+    /*raw_keyboard_macos.RawKeyEventDataMacOs.deviceIndependentMask*/get deviceIndependentMask() {
+      return 4294901760.0;
+    }
+  }, false);
+  var keyHelper$ = dart.privateName(raw_keyboard_linux, "RawKeyEventDataLinux.keyHelper");
+  var unicodeScalarValues$ = dart.privateName(raw_keyboard_linux, "RawKeyEventDataLinux.unicodeScalarValues");
+  var scanCode$0 = dart.privateName(raw_keyboard_linux, "RawKeyEventDataLinux.scanCode");
+  var keyCode$1 = dart.privateName(raw_keyboard_linux, "RawKeyEventDataLinux.keyCode");
+  var modifiers$1 = dart.privateName(raw_keyboard_linux, "RawKeyEventDataLinux.modifiers");
+  var isDown$ = dart.privateName(raw_keyboard_linux, "RawKeyEventDataLinux.isDown");
+  raw_keyboard_linux.RawKeyEventDataLinux = class RawKeyEventDataLinux extends raw_keyboard.RawKeyEventData {
+    get keyHelper() {
+      return this[keyHelper$];
+    }
+    set keyHelper(value) {
+      super.keyHelper = value;
+    }
+    get unicodeScalarValues() {
+      return this[unicodeScalarValues$];
+    }
+    set unicodeScalarValues(value) {
+      super.unicodeScalarValues = value;
+    }
+    get scanCode() {
+      return this[scanCode$0];
+    }
+    set scanCode(value) {
+      super.scanCode = value;
+    }
+    get keyCode() {
+      return this[keyCode$1];
+    }
+    set keyCode(value) {
+      super.keyCode = value;
+    }
+    get modifiers() {
+      return this[modifiers$1];
+    }
+    set modifiers(value) {
+      super.modifiers = value;
+    }
+    get isDown() {
+      return this[isDown$];
+    }
+    set isDown(value) {
+      super.isDown = value;
+    }
+    get keyLabel() {
+      return this.unicodeScalarValues === 0 ? "" : core.String.fromCharCode(this.unicodeScalarValues);
+    }
+    get physicalKey() {
+      let t0;
+      t0 = keyboard_maps.kLinuxToPhysicalKey[$_get](this.scanCode);
+      return t0 == null ? keyboard_key.PhysicalKeyboardKey.none : t0;
+    }
+    get logicalKey() {
+      let t0;
+      let numPadKey = this.keyHelper.numpadKey(this.keyCode);
+      if (numPadKey != null) {
+        return numPadKey;
+      }
+      if (this.keyLabel[$isNotEmpty] && !dart.test(keyboard_key.LogicalKeyboardKey.isControlCharacter(this.keyLabel))) {
+        let keyId = (0 | (dart.notNull(this.unicodeScalarValues) & 4294967295.0) >>> 0) >>> 0;
+        t0 = keyboard_key.LogicalKeyboardKey.findKeyByKeyId(keyId);
+        return t0 == null ? new keyboard_key.LogicalKeyboardKey.new(keyId, {keyLabel: this.keyLabel, debugName: false ? null : "Key " + this.keyLabel[$toUpperCase]()}) : t0;
+      }
+      let newKey = this.keyHelper.logicalKey(this.keyCode);
+      if (newKey != null) {
+        return newKey;
+      }
+      newKey == null ? newKey = new keyboard_key.LogicalKeyboardKey.new((25769803776.0 | dart.notNull(this.keyCode) | 1099511627776.0) >>> 0, {debugName: false ? null : "Unknown key code " + dart.str(this.keyCode)}) : null;
+      return newKey;
+    }
+    isModifierPressed(key, opts) {
+      if (key == null) dart.nullFailed(I[8], 120, 38, "key");
+      let side = opts && 'side' in opts ? opts.side : C[0] || CT.C0;
+      if (side == null) dart.nullFailed(I[8], 120, 57, "side");
+      return this.keyHelper.isModifierPressed(key, this.modifiers, {side: side, keyCode: this.keyCode, isDown: this.isDown});
+    }
+    getModifierSide(key) {
+      if (key == null) dart.nullFailed(I[8], 125, 44, "key");
+      return this.keyHelper.getModifierSide(key);
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "RawKeyEventDataLinux")) + "(keyLabel: " + dart.str(this.keyLabel) + ", keyCode: " + dart.str(this.keyCode) + ", scanCode: " + dart.str(this.scanCode) + "," + " unicodeScalarValues: " + dart.str(this.unicodeScalarValues) + ", modifiers: " + dart.str(this.modifiers) + ", " + "modifiers down: " + dart.str(this.modifiersPressed) + ")";
+    }
+  };
+  (raw_keyboard_linux.RawKeyEventDataLinux.new = function(opts) {
+    let keyHelper = opts && 'keyHelper' in opts ? opts.keyHelper : null;
+    if (keyHelper == null) dart.nullFailed(I[8], 26, 19, "keyHelper");
+    let unicodeScalarValues = opts && 'unicodeScalarValues' in opts ? opts.unicodeScalarValues : 0;
+    if (unicodeScalarValues == null) dart.nullFailed(I[8], 27, 10, "unicodeScalarValues");
+    let scanCode = opts && 'scanCode' in opts ? opts.scanCode : 0;
+    if (scanCode == null) dart.nullFailed(I[8], 28, 10, "scanCode");
+    let keyCode = opts && 'keyCode' in opts ? opts.keyCode : 0;
+    if (keyCode == null) dart.nullFailed(I[8], 29, 10, "keyCode");
+    let modifiers = opts && 'modifiers' in opts ? opts.modifiers : 0;
+    if (modifiers == null) dart.nullFailed(I[8], 30, 10, "modifiers");
+    let isDown = opts && 'isDown' in opts ? opts.isDown : null;
+    if (isDown == null) dart.nullFailed(I[8], 31, 19, "isDown");
+    this[keyHelper$] = keyHelper;
+    this[unicodeScalarValues$] = unicodeScalarValues;
+    this[scanCode$0] = scanCode;
+    this[keyCode$1] = keyCode;
+    this[modifiers$1] = modifiers;
+    this[isDown$] = isDown;
+    if (!(scanCode != null)) dart.assertFailed(null, I[8], 32, 15, "scanCode != null");
+    if (!(unicodeScalarValues != null)) dart.assertFailed(null, I[8], 33, 15, "unicodeScalarValues != null");
+    if (!((dart.notNull(unicodeScalarValues) & ~4294967295.0 >>> 0) === 0)) dart.assertFailed(null, I[8], 34, 15, "(unicodeScalarValues & ~LogicalKeyboardKey.valueMask) == 0");
+    if (!(keyCode != null)) dart.assertFailed(null, I[8], 35, 15, "keyCode != null");
+    if (!(modifiers != null)) dart.assertFailed(null, I[8], 36, 15, "modifiers != null");
+    if (!(keyHelper != null)) dart.assertFailed(null, I[8], 37, 15, "keyHelper != null");
+    raw_keyboard_linux.RawKeyEventDataLinux.__proto__.new.call(this);
+    ;
+  }).prototype = raw_keyboard_linux.RawKeyEventDataLinux.prototype;
+  dart.addTypeTests(raw_keyboard_linux.RawKeyEventDataLinux);
+  dart.addTypeCaches(raw_keyboard_linux.RawKeyEventDataLinux);
+  dart.setMethodSignature(raw_keyboard_linux.RawKeyEventDataLinux, () => ({
+    __proto__: dart.getMethods(raw_keyboard_linux.RawKeyEventDataLinux.__proto__),
+    isModifierPressed: dart.fnType(core.bool, [raw_keyboard.ModifierKey], {side: raw_keyboard.KeyboardSide}, {}),
+    getModifierSide: dart.fnType(raw_keyboard.KeyboardSide, [raw_keyboard.ModifierKey])
+  }));
+  dart.setGetterSignature(raw_keyboard_linux.RawKeyEventDataLinux, () => ({
+    __proto__: dart.getGetters(raw_keyboard_linux.RawKeyEventDataLinux.__proto__),
+    keyLabel: core.String,
+    physicalKey: keyboard_key.PhysicalKeyboardKey,
+    logicalKey: keyboard_key.LogicalKeyboardKey
+  }));
+  dart.setLibraryUri(raw_keyboard_linux.RawKeyEventDataLinux, I[9]);
+  dart.setFieldSignature(raw_keyboard_linux.RawKeyEventDataLinux, () => ({
+    __proto__: dart.getFields(raw_keyboard_linux.RawKeyEventDataLinux.__proto__),
+    keyHelper: dart.finalFieldType(raw_keyboard_linux.KeyHelper),
+    unicodeScalarValues: dart.finalFieldType(core.int),
+    scanCode: dart.finalFieldType(core.int),
+    keyCode: dart.finalFieldType(core.int),
+    modifiers: dart.finalFieldType(core.int),
+    isDown: dart.finalFieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(raw_keyboard_linux.RawKeyEventDataLinux, ['toString']);
+  raw_keyboard_linux.KeyHelper = class KeyHelper extends core.Object {
+    static new(toolkit) {
+      if (toolkit == null) dart.nullFailed(I[8], 144, 28, "toolkit");
+      if (toolkit === "glfw") {
+        return new raw_keyboard_linux.GLFWKeyHelper.new();
+      } else if (toolkit === "gtk") {
+        return new raw_keyboard_linux.GtkKeyHelper.new();
+      } else {
+        dart.throw(assertions.FlutterError.new("Window toolkit not recognized: " + dart.str(toolkit)));
+      }
+    }
+  };
+  (raw_keyboard_linux.KeyHelper[dart.mixinNew] = function() {
+  }).prototype = raw_keyboard_linux.KeyHelper.prototype;
+  dart.addTypeTests(raw_keyboard_linux.KeyHelper);
+  dart.addTypeCaches(raw_keyboard_linux.KeyHelper);
+  dart.setLibraryUri(raw_keyboard_linux.KeyHelper, I[9]);
+  var _mergeModifiers = dart.privateName(raw_keyboard_linux, "_mergeModifiers");
+  const Object_KeyHelper$36 = class Object_KeyHelper extends core.Object {};
+  (Object_KeyHelper$36.new = function() {
+  }).prototype = Object_KeyHelper$36.prototype;
+  dart.applyMixin(Object_KeyHelper$36, raw_keyboard_linux.KeyHelper);
+  raw_keyboard_linux.GLFWKeyHelper = class GLFWKeyHelper extends Object_KeyHelper$36 {
+    [_mergeModifiers](opts) {
+      let modifiers = opts && 'modifiers' in opts ? opts.modifiers : null;
+      if (modifiers == null) dart.nullFailed(I[8], 214, 37, "modifiers");
+      let keyCode = opts && 'keyCode' in opts ? opts.keyCode : null;
+      if (keyCode == null) dart.nullFailed(I[8], 214, 61, "keyCode");
+      let isDown = opts && 'isDown' in opts ? opts.isDown : null;
+      if (isDown == null) dart.nullFailed(I[8], 214, 84, "isDown");
+      let modifierChange = 0;
+      switch (keyCode) {
+        case 340:
+        case 344:
+        {
+          modifierChange = 1;
+          break;
+        }
+        case 341:
+        case 345:
+        {
+          modifierChange = 2;
+          break;
+        }
+        case 342:
+        case 346:
+        {
+          modifierChange = 4;
+          break;
+        }
+        case 343:
+        case 347:
+        {
+          modifierChange = 8;
+          break;
+        }
+        case 280:
+        {
+          modifierChange = 16;
+          break;
+        }
+        case 282:
+        {
+          modifierChange = 32;
+          break;
+        }
+        default:
+        {
+          break;
+        }
+      }
+      return dart.test(isDown) ? (dart.notNull(modifiers) | modifierChange) >>> 0 : (dart.notNull(modifiers) & ~modifierChange >>> 0) >>> 0;
+    }
+    isModifierPressed(key, modifiers, opts) {
+      if (key == null) dart.nullFailed(I[8], 264, 38, "key");
+      if (modifiers == null) dart.nullFai

@@ -1,0 +1,290 @@
+define(['dart_sdk', 'packages/flutter_challange/src/widgets/the_loader.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/form.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter_challange/src/services/auth_sevice.dart', 'packages/flutter_challange/src/models/auth/login_model.dart', 'packages/flutter_challange/src/models/auth/register_model.dart', 'packages/firebase_auth/firebase_auth.dart', 'packages/flutter_challange/src/widgets/custom_widget.dart', 'packages/flutter/src/material/colors.dart', 'packages/firebase_auth_platform_interface/src/firebase_auth_exception.dart', 'packages/flutter_challange/src/helpers/validators.dart', 'packages/flutter/src/foundation/change_notifier.dart'], (function load__packages__flutter_challange__src__providers__auth__register_bloc_dart(dart_sdk, packages__flutter_challange__src__widgets__the_loader$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__form$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter_challange__src__services__auth_sevice$46dart, packages__flutter_challange__src__models__auth__login_model$46dart, packages__flutter_challange__src__models__auth__register_model$46dart, packages__firebase_auth__firebase_auth$46dart, packages__flutter_challange__src__widgets__custom_widget$46dart, packages__flutter__src__material__colors$46dart, packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart, packages__flutter_challange__src__helpers__validators$46dart, packages__flutter__src__foundation__change_notifier$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const the_loader = packages__flutter_challange__src__widgets__the_loader$46dart.src__widgets__the_loader;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const binding = packages__flutter__src__widgets__widget_span$46dart.src__widgets__binding;
+  const form = packages__flutter__src__widgets__form$46dart.src__widgets__form;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const auth_sevice = packages__flutter_challange__src__services__auth_sevice$46dart.src__services__auth_sevice;
+  const login_model = packages__flutter_challange__src__models__auth__login_model$46dart.src__models__auth__login_model;
+  const register_model = packages__flutter_challange__src__models__auth__register_model$46dart.src__models__auth__register_model;
+  const firebase_auth = packages__firebase_auth__firebase_auth$46dart.firebase_auth;
+  const custom_widget = packages__flutter_challange__src__widgets__custom_widget$46dart.src__widgets__custom_widget;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const firebase_auth_exception = packages__firebase_auth_platform_interface__src__firebase_auth_exception$46dart.src__firebase_auth_exception;
+  const validators = packages__flutter_challange__src__helpers__validators$46dart.src__helpers__validators;
+  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
+  var register_bloc = Object.create(dart.library);
+  var $forEach = dartx.forEach;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    FormStateL: () => (T.FormStateL = dart.constFn(dart.legacy(form.FormState)))(),
+    GlobalKeyOfFormStateL: () => (T.GlobalKeyOfFormStateL = dart.constFn(framework.GlobalKey$(T.FormStateL())))(),
+    ScaffoldStateL: () => (T.ScaffoldStateL = dart.constFn(dart.legacy(scaffold.ScaffoldState)))(),
+    GlobalKeyOfScaffoldStateL: () => (T.GlobalKeyOfScaffoldStateL = dart.constFn(framework.GlobalKey$(T.ScaffoldStateL())))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    FirebaseAuthExceptionL: () => (T.FirebaseAuthExceptionL = dart.constFn(dart.legacy(firebase_auth_exception.FirebaseAuthException)))(),
+    JSArrayOfStringL: () => (T.JSArrayOfStringL = dart.constFn(_interceptors.JSArray$(T.StringL())))(),
+    boolL: () => (T.boolL = dart.constFn(dart.legacy(core.bool)))(),
+    StringLToboolL: () => (T.StringLToboolL = dart.constFn(dart.fnType(T.boolL(), [T.StringL()])))(),
+    DurationL: () => (T.DurationL = dart.constFn(dart.legacy(core.Duration)))(),
+    DurationLTovoid: () => (T.DurationLTovoid = dart.constFn(dart.fnType(dart.void, [T.DurationL()])))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  var C = [];
+  var I = ["package:flutter_challange/src/providers/auth/register_bloc.dart"];
+  var loader = dart.privateName(register_bloc, "RegisterBloc.loader");
+  var formKey = dart.privateName(register_bloc, "RegisterBloc.formKey");
+  var scaffoldKey = dart.privateName(register_bloc, "RegisterBloc.scaffoldKey");
+  var loginModel = dart.privateName(register_bloc, "RegisterBloc.loginModel");
+  var registerModel = dart.privateName(register_bloc, "RegisterBloc.registerModel");
+  var namaController = dart.privateName(register_bloc, "RegisterBloc.namaController");
+  var emailController = dart.privateName(register_bloc, "RegisterBloc.emailController");
+  var passwordController = dart.privateName(register_bloc, "RegisterBloc.passwordController");
+  var passwordController2 = dart.privateName(register_bloc, "RegisterBloc.passwordController2");
+  var _context = dart.privateName(register_bloc, "_context");
+  var _repository = dart.privateName(register_bloc, "_repository");
+  var _auth = dart.privateName(register_bloc, "_auth");
+  var _nama = dart.privateName(register_bloc, "_nama");
+  var _email = dart.privateName(register_bloc, "_email");
+  var _password = dart.privateName(register_bloc, "_password");
+  var _password2 = dart.privateName(register_bloc, "_password2");
+  register_bloc.RegisterBloc = class RegisterBloc extends change_notifier.ChangeNotifier {
+    get loader() {
+      return this[loader];
+    }
+    set loader(value) {
+      this[loader] = value;
+    }
+    get formKey() {
+      return this[formKey];
+    }
+    set formKey(value) {
+      super.formKey = value;
+    }
+    get scaffoldKey() {
+      return this[scaffoldKey];
+    }
+    set scaffoldKey(value) {
+      super.scaffoldKey = value;
+    }
+    get loginModel() {
+      return this[loginModel];
+    }
+    set loginModel(value) {
+      this[loginModel] = value;
+    }
+    get registerModel() {
+      return this[registerModel];
+    }
+    set registerModel(value) {
+      this[registerModel] = value;
+    }
+    get namaController() {
+      return this[namaController];
+    }
+    set namaController(value) {
+      super.namaController = value;
+    }
+    get emailController() {
+      return this[emailController];
+    }
+    set emailController(value) {
+      super.emailController = value;
+    }
+    get passwordController() {
+      return this[passwordController];
+    }
+    set passwordController(value) {
+      super.passwordController = value;
+    }
+    get passwordController2() {
+      return this[passwordController2];
+    }
+    set passwordController2(value) {
+      super.passwordController2 = value;
+    }
+    get nama() {
+      return this[_nama];
+    }
+    setNama(nama) {
+      this[_nama] = nama;
+      this.notifyListeners();
+    }
+    get email() {
+      return this[_email];
+    }
+    setEmail(email) {
+      this[_email] = email;
+      this.notifyListeners();
+    }
+    get password() {
+      return this[_password];
+    }
+    setPassword(password) {
+      this[_password] = password;
+      this.notifyListeners();
+    }
+    get password2() {
+      return this[_password2];
+    }
+    setPassword2(password2) {
+      this[_password2] = password2;
+      this.notifyListeners();
+    }
+    didMount(context) {
+      this[_context] = T.BuildContextL().as(context);
+    }
+    onSubmit() {
+      return async.async(dart.dynamic, (function* onSubmit() {
+        try {
+          if (dart.dtest(yield this.validate())) {
+            this.loader.showLoader(this[_context]);
+            let userCredential = (yield firebase_auth.FirebaseAuth.instance.createUserWithEmailAndPassword({email: this[_email], password: this[_password]}));
+            this.loader.hideLoader();
+          }
+        } catch (e$) {
+          let ex = dart.getThrown(e$);
+          if (T.FirebaseAuthExceptionL().is(ex)) {
+            let e = ex;
+            if (e.code === "weak-password") {
+              core.print("The password provided is too weak.");
+            } else if (e.code === "email-already-in-use") {
+              core.print("The account already exists for that email.");
+            }
+            this.loader.hideLoader();
+            custom_widget.customSnackBar(this.scaffoldKey, e.message, {backgroundColor: colors.Colors.redAccent});
+          } else {
+            let e = ex;
+            core.print(e);
+            this.loader.hideLoader();
+            custom_widget.customSnackBar(this.scaffoldKey, T.StringL().as(dart.dload(e, 'message')), {backgroundColor: colors.Colors.redAccent});
+          }
+        }
+      }).bind(this));
+    }
+    validate() {
+      let validated = true;
+      T.JSArrayOfStringL().of([this[_nama], this[_email], this[_password], this[_password2]])[$forEach](dart.fn(dt => {
+        if (dart.dtest(validators.Validators.isNull(dt))) {
+          validated = false;
+        }
+        return validated;
+      }, T.StringLToboolL()));
+      if (!validated)
+        custom_widget.customSnackBar(this.scaffoldKey, "Semua field wajib di isi", {backgroundColor: colors.Colors.redAccent});
+      else if (this.password != this[_password2]) {
+        custom_widget.customSnackBar(this.scaffoldKey, "Password dan konfirmasi password tidak sama", {backgroundColor: colors.Colors.redAccent});
+        validated = false;
+      }
+      return validated;
+    }
+    clearEmailValue() {
+      binding.WidgetsBinding.instance.addPostFrameCallback(dart.fn(_ => this.emailController.clear(), T.DurationLTovoid()));
+    }
+    clearPasswordValue() {
+      binding.WidgetsBinding.instance.addPostFrameCallback(dart.fn(_ => this.passwordController.clear(), T.DurationLTovoid()));
+    }
+  };
+  (register_bloc.RegisterBloc.new = function() {
+    this[_context] = null;
+    this[loader] = the_loader.CustomLoader.new();
+    this[formKey] = T.GlobalKeyOfFormStateL().new();
+    this[scaffoldKey] = T.GlobalKeyOfScaffoldStateL().new();
+    this[_repository] = new auth_sevice.AuthService.new();
+    this[_auth] = null;
+    this[loginModel] = new login_model.LoginModel.new();
+    this[registerModel] = new register_model.RegisterModel.new();
+    this[namaController] = new editable_text.TextEditingController.new();
+    this[_nama] = null;
+    this[emailController] = new editable_text.TextEditingController.new();
+    this[_email] = null;
+    this[passwordController] = new editable_text.TextEditingController.new();
+    this[_password] = null;
+    this[passwordController2] = new editable_text.TextEditingController.new();
+    this[_password2] = null;
+    register_bloc.RegisterBloc.__proto__.new.call(this);
+    this.namaController.addListener(dart.fn(() => {
+      this.setNama(this.namaController.text);
+    }, T.VoidToNull()));
+    this.emailController.addListener(dart.fn(() => {
+      this.setEmail(this.emailController.text);
+    }, T.VoidToNull()));
+    this.passwordController.addListener(dart.fn(() => {
+      this.setPassword(this.passwordController.text);
+    }, T.VoidToNull()));
+    this.passwordController2.addListener(dart.fn(() => {
+      this.setPassword2(this.passwordController2.text);
+    }, T.VoidToNull()));
+  }).prototype = register_bloc.RegisterBloc.prototype;
+  dart.addTypeTests(register_bloc.RegisterBloc);
+  dart.addTypeCaches(register_bloc.RegisterBloc);
+  dart.setMethodSignature(register_bloc.RegisterBloc, () => ({
+    __proto__: dart.getMethods(register_bloc.RegisterBloc.__proto__),
+    setNama: dart.fnType(dart.dynamic, [dart.legacy(core.String)]),
+    setEmail: dart.fnType(dart.dynamic, [dart.legacy(core.String)]),
+    setPassword: dart.fnType(dart.dynamic, [dart.legacy(core.String)]),
+    setPassword2: dart.fnType(dart.dynamic, [dart.legacy(core.String)]),
+    didMount: dart.fnType(dart.dynamic, [dart.dynamic]),
+    onSubmit: dart.fnType(dart.dynamic, []),
+    validate: dart.fnType(dart.dynamic, []),
+    clearEmailValue: dart.fnType(dart.dynamic, []),
+    clearPasswordValue: dart.fnType(dart.dynamic, [])
+  }));
+  dart.setGetterSignature(register_bloc.RegisterBloc, () => ({
+    __proto__: dart.getGetters(register_bloc.RegisterBloc.__proto__),
+    nama: dart.legacy(core.String),
+    email: dart.legacy(core.String),
+    password: dart.legacy(core.String),
+    password2: dart.legacy(core.String)
+  }));
+  dart.setLibraryUri(register_bloc.RegisterBloc, I[0]);
+  dart.setFieldSignature(register_bloc.RegisterBloc, () => ({
+    __proto__: dart.getFields(register_bloc.RegisterBloc.__proto__),
+    [_context]: dart.fieldType(dart.legacy(framework.BuildContext)),
+    loader: dart.fieldType(dart.legacy(the_loader.CustomLoader)),
+    formKey: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(form.FormState)))),
+    scaffoldKey: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(scaffold.ScaffoldState)))),
+    [_repository]: dart.finalFieldType(dart.legacy(auth_sevice.AuthService)),
+    [_auth]: dart.fieldType(dart.legacy(login_model.LoginResponseModel)),
+    loginModel: dart.fieldType(dart.legacy(login_model.LoginModel)),
+    registerModel: dart.fieldType(dart.legacy(register_model.RegisterModel)),
+    namaController: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    [_nama]: dart.fieldType(dart.legacy(core.String)),
+    emailController: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    [_email]: dart.fieldType(dart.legacy(core.String)),
+    passwordController: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    [_password]: dart.fieldType(dart.legacy(core.String)),
+    passwordController2: dart.finalFieldType(dart.legacy(editable_text.TextEditingController)),
+    [_password2]: dart.fieldType(dart.legacy(core.String))
+  }));
+  dart.trackLibraries("packages/flutter_challange/src/providers/auth/register_bloc.dart", {
+    "package:flutter_challange/src/providers/auth/register_bloc.dart": register_bloc
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["register_bloc.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAee;;;;;;IACP;;;;;;IACyB;;;;;;IAIpB;;;;;;IACG;;;;;;IAER;;;;;;IAQA;;;;;;IAQA;;;;;;IAQA;;;;;;;AAtBa;IAAK;YACT;AACD,MAAZ,cAAQ,IAAI;AACK,MAAjB;IACF;;AAIoB;IAAM;aACV;AACA,MAAd,eAAS,KAAK;AACG,MAAjB;IACF;;AAIuB;IAAS;gBACb;AACG,MAApB,kBAAY,QAAQ;AACH,MAAjB;IACF;;AAIwB;IAAU;iBACd;AACI,MAAtB,mBAAa,SAAS;AACL,MAAjB;IACF;aAiBS;AACW,uBAAlB,qBAAW,OAAO;IACpB;;AAEQ;AACN;AACE,yBAAI,MAAM;AACmB,YAA3B,AAAO,uBAAW;AACH,kCAAiB,MAAmB,AAC9C,2EAAsC,wBAAkB;AAC1C,YAAnB,AAAO;;;;AAET;gBAAgC;AAChC,gBAAI,AAAE,AAAK,CAAN,UAAS;AAC+B,cAA3C,WAAM;kBACD,KAAI,AAAE,AAAK,CAAN,UAAS;AACgC,cAAnD,WAAM;;AAEW,YAAnB,AAAO;AACkE,YAAzE,6BAAe,kBAAa,AAAE,CAAD,4BAAkC;;gBACxD;AACC,YAAR,WAAM,CAAC;AACY,YAAnB,AAAO;AACkE,YAAzE,6BAAe,iCAAe,WAAF,CAAC,iCAAkC;;;MAEnE;;;AAGO,sBAAY;AAMf,MALF,AAAuC,yBAAtC,aAAO,cAAQ,iBAAW,6BAAoB,QAAC;AAC9C,uBAAe,6BAAO,EAAE;AACL,UAAjB,YAAY;;AAEd,cAAO,UAAS;;AAElB,WAAK,SAAS;AAE0B,QADtC,6BAAe,kBAAa,8CACA;UACzB,KAAI,AAAS,iBAAG;AAEmB,QADtC,6BAAe,kBAAa,iEACA;AACX,QAAjB,YAAY;;AAEd,YAAO,UAAS;IAClB;;AAI2D,MAD1C,AACV,qDAAqB,QAAC,KAAM,AAAgB;IACnD;;AAI8D,MAD7C,AACV,qDAAqB,QAAC,KAAM,AAAmB;IACtD;;;IAhHa;IAEA,eAAS;IAChB,gBAAc;IACW,oBAAkB;IAE3C,oBAAc;IACD;IACR,mBAAa;IACV,sBAAgB;IAExB,uBAAiB;IAChB;IAOD,wBAAkB;IACjB;IAOD,2BAAqB;IACpB;IAOD,4BAAsB;IACrB;AAOP;AAGI,IAFF,AAAe,gCAAY;AACG,MAA5B,aAAQ,AAAe;;AAIvB,IAFF,AAAgB,iCAAY;AACI,MAA9B,cAAS,AAAgB;;AAIzB,IAFF,AAAmB,oCAAY;AACO,MAApC,iBAAY,AAAmB;;AAI/B,IAFF,AAAoB,qCAAY;AACQ,MAAtC,kBAAa,AAAoB;;EAErC","file":"../../../../../../../../../packages/flutter_challange/src/providers/auth/register_bloc.dart.lib.js"}');
+  // Exports:
+  return {
+    src__providers__auth__register_bloc: register_bloc
+  };
+}));
+
+//# sourceMappingURL=register_bloc.dart.lib.js.map
